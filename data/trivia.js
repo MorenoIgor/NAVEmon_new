@@ -1,0 +1,35 @@
+//chatGPT
+
+export const pokemonTrivia = [
+    "Pikachu foi quase substituído por Clefairy como mascote oficial de Pokémon.",
+    "O nome Pokémon vem da junção de 'Pocket Monsters'.",
+    "Rhydon foi o primeiro Pokémon projetado pela Game Freak.",
+    "Gyarados é baseado em uma lenda japonesa sobre uma carpa que se transforma em dragão.",
+    "Ditto pode ser um clone falho de Mew, devido às suas similaridades.",
+    "Arcanine foi originalmente planejado para ser um Pokémon Lendário.",
+    "No Japão, o nome do Pokémon 'Squirtle' é Zenigame, que significa 'tartaruga com moeda'.",
+    "MissingNo é um glitch famoso que aparece nos jogos da primeira geração.",
+    "No mundo Pokémon, a enfermeira Joy tem uma família inteira de parentes idênticas.",
+    "Ekans é 'snake' ao contrário, e Arbok é 'cobra' ao contrário, com 'k'.",
+    "Os nomes de Articuno, Zapdos e Moltres terminam com os números em espanhol: uno, dos, tres.",
+    "Magikarp é considerado inútil, mas evolui para o poderoso Gyarados.",
+    "Snorlax foi inspirado no designer de Pokémon Koji Nishino.",
+    "Na Pokédex original, Cubone usava o crânio de sua mãe como capacete.",
+    "Abra, Kadabra e Alakazam têm nomes inspirados em palavras mágicas.",
+    "Wobbuffet pode estar escondendo um segredo: sua 'cauda' pode ser o Pokémon real.",
+    "Ash nunca envelhece porque o anime segue um universo sem passagem de tempo linear.",
+    "Na primeira geração, Psychic era o tipo mais poderoso devido a poucos counters.",
+    "Eevee tem oito evoluções diferentes, conhecidas como 'Eeveelutions'.",
+    "Poliwag tem espirais no corpo que representam seus órgãos internos.",
+    "Charizard não é oficialmente um dragão, apesar de sua aparência.",
+    "Pichu, pré-evolução de Pikachu, foi introduzido apenas na segunda geração.",
+    "Clefairy era originalmente o Pokémon favorito de Ash no mangá.",
+    "O tema de batalha dos jogos Pokémon foi inspirado em trilhas de RPGs clássicos.",
+    "Lugia foi criado para o filme 'Pokémon 2000' e depois integrado nos jogos.",
+    "Pokémon foi inspirado no hobby de colecionar insetos do criador, Satoshi Tajiri.",
+    "O número total de Pokémon ultrapassa 1.000 após a nona geração.",
+    "Ditto é o único Pokémon que pode se transformar em qualquer outro.",
+    "Meowth é o único Pokémon que pode falar no anime, além de Mewtwo.",
+    "Gastly, Haunter e Gengar são os únicos fantasmas originais da primeira geração."
+  ];
+  
