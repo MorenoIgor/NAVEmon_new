@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@prisma/client": "^6.2.1",
+    "cirrus-ui": "^0.7.2-patch.1",
     "next": "15.1.5",
     "next-auth": "^4.24.11",
     "prisma": "^6.2.1",

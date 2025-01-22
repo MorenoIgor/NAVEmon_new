@@ -2,7 +2,7 @@
 
 import { useSession } from "next-auth/react"
 import { useState, useEffect } from "react"
-import { userAlreadyExists, startBattle, getChallenges, getBattleDataById, getUserId } from "../databasefunctions"
+import { userAlreadyExists, startBattle, getChallenges, getChallengesReceived, getChallengesMade, getBattleDataById, getUserId, getUserData } from "../databasefunctions"
 import { NAVEmon } from "@/data/navemon"
 import { useRouter } from "next/navigation"
 
@@ -14,79 +14,81 @@ export default function Desafios() {
     const [challengeError, setChallengeError] = useState("")
     const [challengesReceived, setChallengesReceived] = useState([])
     const [challengesMade, setChallengesMade] = useState([])
+    const [playerInfo, setPlayerInfo] = useState({})
 
     const router = useRouter()
 
         useEffect(
             () => {
-                async function getChallengesReceived() {
-                    let chl = await getChallenges(session?.user.email,"received")
-                    let chllist = chl.challenges_received.split(",")
+                async function retrieveChallengesReceived() {
+                    let data = await getUserId(session?.user.email)
+
+                    let uid = parseInt(data.id)
+
+                    let cr = await getChallengesReceived(uid)
+
                     let arr = []
 
-                    let uid = await getUserId(session?.user.email)
-
-                    for (let c of chllist) {
-                        if (c!="") {
-                            let bd = await getBattleDataById(parseInt(c))
-
-                            if (bd==null) {
-                                continue
+                    for (let c of cr) {
+                        arr.push({
+                            trainerName: c.player1name,
+                            navemon: NAVEmon[c.player1monster].name,
+                            battleid: parseInt(c.id)
                             }
-                            arr.push(
-                                {
-                                    trainerName: bd.player1name,
-                                    navemon: NAVEmon[bd.player1monster].name,
-                                    battleid: parseInt(c)
-                                }
-                            )
-                        }
+                        )
                     }
+
                     setChallengesReceived(arr)
                 }
-                async function getChallengesMade() {
-                    let chl = await getChallenges(session?.user.email,"made")
-                    let chllist = chl.challenges_made.split(",")
+
+                async function retrieveChallengesMade() {
+                    let data = await getUserId(session?.user.email)
+
+                    let uid = parseInt(data.id)
+
+                    let cr = await getChallengesMade(uid)
+
                     let arr = []
 
-                    let uid = await getUserId(session?.user.email)
-
-                    for (let c of chllist) {
-                        if (c!="") {
-                            let bd = await getBattleDataById(parseInt(c))
-
-                            if (bd==null) {
-                                continue
+                    for (let c of cr) {
+                        arr.push({
+                            trainerName: c.player2name,
+                            navemon: NAVEmon[c.player2monster].name,
+                            battleid: parseInt(c.id)
                             }
-                            arr.push(
-                                {
-                                    trainerName: bd.player2name,
-                                    navemon: NAVEmon[bd.player2monster].name,
-                                    battleid: parseInt(c)
-                                }
-                            )
-                        }
+                        )
                     }
+
                     setChallengesMade(arr)
                 }
-                getChallengesReceived()
-                getChallengesMade()
+
+                async function getPlayerInfo() {
+                        let data = await getUserData(session?.user.email)
+                        setPlayerInfo(data)
+                }
+                retrieveChallengesReceived()
+                retrieveChallengesMade()
+                getPlayerInfo()
             }
         ,[])
 
 
     async function challenge() {
         let target = document.querySelector("#challenge").value
-        if (target!=session?.user?.email) {
-            if (await userAlreadyExists(target)) {
-                let btl = await startBattle(session?.user.email,target)
-                router.replace("/batalha/duelo/"+btl.id)
-                //Não deixar iniciar uma batalha se já tiver outra em curso com a mesma pessoa!
+        if (parseInt(playerInfo.challenges)>0) {
+            if (target!=session?.user?.email) {
+                if (await userAlreadyExists(target)) {
+                    let btl = await startBattle(session?.user.email,target)
+                    router.replace("/batalha/duelo/"+btl.id)
+                    //Não deixar iniciar uma batalha se já tiver outra em curso com a mesma pessoa!
+                } else {
+                    setChallengeError("Este email não existe!")
+                }
             } else {
-                setChallengeError("Este email não existe!")
+                setChallengeError("Você não pode se desafiar!")
             }
         } else {
-            setChallengeError("Você não pode se desafiar!")
+            setChallengeError("Você não tem desafios suficientes! Volte amanhã!")
         }
     }
 
@@ -115,9 +117,17 @@ export default function Desafios() {
                 )
             }
 
+            <p>
+            <b>Vitórias: </b>{playerInfo.wins }<br />
+            <b>Derrotas: </b>{playerInfo.losses}<br />
+            <b>Empates: </b>{playerInfo.draws}<br />
+            </p>
+
+            <b>Desafios restantes: {playerInfo.challenges}</b><br />
             <input id="challenge"></input>
             <button onClick={()=>challenge()}>Desafiar</button>
             <p>{challengeError}</p>
+            <p><button onClick={()=>{router.replace("/inicio/")}}>Voltar para Início</button></p>
         </div>
 
     )

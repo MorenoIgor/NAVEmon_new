@@ -15,13 +15,28 @@ export function CaughtMonsterStats(props) {
     }
 
     return (
-        <div className="listNAVEmonBadge" onClick={
-            ()=> {
-                router.push("/navedex/"+props.monsterdata.id)   
-            }
-        }>
-            <h3>{props.monsterdata.name + star}</h3>
+        // <div className="listNAVEmonBadge" onClick={
+        //     ()=> {
+        //         router.push("/navedex/"+props.monsterdata.id)   
+        //     }
+        // }>
+        //     <h3>{props.monsterdata.name + star}</h3>
+        //     <img className={clsnm} src={`/artwork/${props.monsterdata.id}.png`}></img>
+        // </div>
+
+        <div className="card" style={{width: "200pt", margin: "6pt"}} onClick={
+                ()=> {
+                    router.push("/navedex/"+props.monsterdata.id)   
+                }
+            } >
+        <div className="card__container">
+        <div className="content u-text-center pt-3">
             <img className={clsnm} src={`/artwork/${props.monsterdata.id}.png`}></img>
+        </div>
+        </div>
+        <div className="card__title-container u-text-center">
+            <h4>{props.monsterdata.name + star}</h4>
+        </div>
         </div>
     )
 
@@ -33,19 +48,37 @@ export function WildMonsterStats(props) {
 
     let clsnm = "NAVEmonBadgeImage"
 
-    let star = ""
-    if (props.current) {
-        star += " ⭐"
+    function goCatch() {
+        console.log(props.cancatch)
+        if (props.cancatch==true) {
+            router.push("/batalha/captura/"+props.monsterdata.id)
+        } else {
+            props.callback()
+        }
     }
 
     return (
-        <div className="listNAVEmonBadge" onClick={
+        // <div className="listNAVEmonBadge" onClick={
+        //     ()=> {
+        //         goCatch()
+        //     }
+        // }>
+        //     <h3>{props.monsterdata.name + star}</h3>
+        //     <img className={clsnm} src={`/artwork/${props.monsterdata.id}.png`}></img>
+        // </div>
+        <div className="card" style={{width: "200pt", margin: "6pt"}} onClick={
             ()=> {
-                router.push("/batalha/captura/"+props.monsterdata.id)
+                goCatch() 
             }
-        }>
-            <h3>{props.monsterdata.name + star}</h3>
-            <img className={clsnm} src={`/artwork/${props.monsterdata.id}.png`}></img>
+        } >
+        <div className="card__container">
+            <div className="content u-text-center pt-3">
+        <img className={clsnm} src={`/artwork/${props.monsterdata.id}.png`}></img>
+            </div>
+        </div>
+        <div className="card__title-container u-text-center">
+            <h4>{props.monsterdata.name}</h4>
+        </div>
         </div>
     )
 

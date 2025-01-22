@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { NAVEmon } from "@/data/navemon";
-import { getBattleDataById, getUserId, writeBattleData } from "@/app/databasefunctions";
+import { getBattleDataById, getUserId, writeBattleData, resolveBattle } from "@/app/databasefunctions";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import {QuestionBlock} from "../../../questionfunctions"
@@ -43,6 +43,12 @@ export default function MonsterStats() {
                     let iddata = await getUserId(session?.user.email)
                     let id = iddata.id
                     let data = await getBattleDataById(parseInt(battleid))
+
+
+                    if (data.player1done==true && data.player2done==true && data.status!="FINISHED") {
+                        data = await resolveBattle(data)
+                    }
+
                     setBattleData(data)
 
                     if (data.player1id==id) {
@@ -81,7 +87,7 @@ export default function MonsterStats() {
       }
 
 
-      async function resolveBattle(result) {
+      async function finishBattle(result) {
         let answers = ""
         for (let r of result) {
             if (r==false) {
@@ -131,7 +137,7 @@ export default function MonsterStats() {
 
     return (
         <div>
-            <BattleRenderer questionlist={questionBlock} time={formattedTime} mode="BATTLE" callback={resolveBattle} />
+            <BattleRenderer questionlist={questionBlock} time={formattedTime} mode="BATTLE" callback={finishBattle} />
         </div>
     )
 

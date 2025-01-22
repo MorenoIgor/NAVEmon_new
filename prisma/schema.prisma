@@ -1,64 +1,68 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
   directUrl = env("DIRECT_URL")
 }
 
 model NAVEmon {
-  id      Int   @id @default(autoincrement())
-  name    String
-  types   String
-  description   String
+  id          Int    @id @default(autoincrement())
+  name        String
+  types       String
+  description String
 }
 
 model user {
-  id      Int   @id @default(autoincrement())
-  name    String 
-  email   String @unique
-  course  String
-  year    Int     @default(1)
-  wins    Int     @default(0)
-  losses  Int     @default(0)
-  draws   Int     @default(0)
-  monsters String
-  currentmonster Int @default(1)
+  id                  Int    @id @default(autoincrement())
+  name                String
+  email               String @unique
+  course              String
+  year                Int    @default(1)
+  wins                Int    @default(0)
+  losses              Int    @default(0)
+  draws               Int    @default(0)
+  monsters            String
+  challenges_made     String @default("")
   challenges_received String @default("")
-  challenges_made String @default("")
+  currentmonster      Int    @default(1)
+  catches             Int    @default(3)
+  challenges          Int    @default(1)
+  laston              Int    @default(0)
 }
 
 model question {
-  id      Int   @id @default(autoincrement())
-  type   String
-  level   Int @default(1)
-  question    String  @unique
-  answer_1   String
-  answer_2   String
-  answer_3   String
-  answer_4   String
-  rightanswer  Int
-
+  id          Int    @id @default(autoincrement())
+  type        String
+  level       Int    @default(1)
+  question    String @unique
+  answer_1    String
+  answer_2    String
+  answer_3    String
+  answer_4    String
+  rightanswer Int
 }
 
 model battle {
-  id Int   @id @default(autoincrement())
-  player1id   Int
-  player1name String
-  player1monster  Int @default(0)
-  player1ready  Boolean @default(false)
-  player1answers  String 
-  player1done Boolean @default(false)
-  player2id   Int
-  player2name String
-  player2monster Int @default(0)
-  player2ready Boolean @default(false)
+  id             Int     @id @default(autoincrement())
+  player1id      Int
+  player1name    String
+  player1monster Int     @default(0)
+  player1ready   Boolean @default(false)
+  player1answers String
+  player1done    Boolean @default(false)
+  player2id      Int
+  player2name    String
+  player2monster Int     @default(0)
+  player2ready   Boolean @default(false)
   player2answers String
-  player2done Boolean @default(false)
-  status String @default("WAITING")
+  player2done    Boolean @default(false)
+  status         String  @default("WAITING")
+}
+
+model admin {
+  id         BigInt  @id @default(autoincrement())
+  currentday BigInt?
 }

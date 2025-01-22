@@ -58,8 +58,13 @@ export default function MonsterStats() {
       }
 
     async function resolveCatch(gotIt) {
-        let cap = await catchNAVEmon(session.user.email,monsterid)
-        router.replace("/navedex/"+monsterid)
+        if (gotIt==true) { 
+            let cap = await catchNAVEmon(session.user.email,monsterid,true)
+            router.replace("/navedex/"+monsterid)
+        } else {
+            await catchNAVEmon(session.user.email,monsterid,false)
+            router.replace("/capturar")
+        }
     }
 
     if (!started) {
