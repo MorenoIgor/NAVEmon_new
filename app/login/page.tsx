@@ -15,8 +15,9 @@ export default function Home() {
 
 function NoAuth(session: object) {
   return (
-      <div>
+    <section className="section u-text-center">
+        <p><img src="/logo/logo.png" className="w-70p u-center" /></p>
       <button className="m-4"  onClick={() => signIn("google", { callbackUrl: '/'} )}>Sign in with Google</button>
-      </div>
+      </section>
   )
 }
