@@ -1,7 +1,6 @@
 "use server"
 
-import prisma from "../database";
-import { userAlreadyExists, createUser } from "../databasefunctions";
+import { userAlreadyExists} from "../databasefunctions";
 
 import { authOptions } from "../auth"
 import { getServerSession } from "next-auth/next"

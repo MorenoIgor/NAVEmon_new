@@ -1,7 +1,4 @@
 "use server"
-
-import prisma from "./database";
-
 import { authOptions } from "./auth"
 import { getServerSession } from "next-auth/next"
 
