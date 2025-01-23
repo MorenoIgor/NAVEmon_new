@@ -9,14 +9,15 @@ import { useRouter } from "next/navigation";
 import {QuestionBlock} from "../../../questionfunctions"
 import {BattleRenderer} from "../../../components/battlerenderer"
 
-let startTime
-let int1
+let startTime : number
+let int1 : any
  
 export default function MonsterStats() {
 
     const {data: session,status} = useSession()
-    const monsterid = useParams().monsterid
-    const navemon = NAVEmon[monsterid]
+    //const monsterid : number = useParams().monsterid
+    let m : number = useParams().monsterid
+    //const navemon = NAVEmon[parseInt(monsterid)]
     const router = useRouter()
 
     if (status!="authenticated") {
@@ -26,6 +27,8 @@ export default function MonsterStats() {
     }
 
     const totalTime = 21000
+    const [monsterid,setmonsterid] = useState(m)
+    const [navemon,setnavemon] = useState(NAVEmon[m])
     const [started, setStarted] = useState(false)
     const [currentTime,setCurrentTime] = useState(0)
     const [timeLeft, setTimeLeft] = useState(totalTime)

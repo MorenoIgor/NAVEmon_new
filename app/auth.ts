@@ -4,25 +4,27 @@ https://github.com/nextauthjs/next-auth/discussions/6030
 */
 
 import { AuthOptions, getServerSession} from "next-auth"
-import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google"
 
 const authOptions: AuthOptions = {
     // Configure one or more authentication providers
   providers: [
-        GitHubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
-    }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
+      clientId: "203882821278-17qcjqtcj8eoidr9hjuor2njjl61019r.apps.googleusercontent.com",
+      clientSecret: "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",
     })
   ],
   /*
   HERE
   */
-  secret: process.env.NEXTAUTH_SECRET
+  secret: "KhDvG0yO0/xcIhXQrkRmnLhntE4UzPHlh9mIzUKE2xk="
+
+  /*
+GOOGLE_ID=203882821278-17qcjqtcj8eoidr9hjuor2njjl61019r.apps.googleusercontent.com
+GOOGLE_SECRET=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
+
+NEXTAUTH_SECRET='KhDvG0yO0/xcIhXQrkRmnLhntE4UzPHlh9mIzUKE2xk='
+  */
 }
 
 /**
