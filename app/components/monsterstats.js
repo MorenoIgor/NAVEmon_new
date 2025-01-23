@@ -35,6 +35,7 @@ export function CaughtMonsterStats(props) {
         </div>
         <div className="card__title-container u-text-center">
             <h6>{props.monsterdata.name + star}</h6>
+            <p><b>{props.monsterdata.types}</b></p>
         </div>
         </div>
     )
@@ -77,6 +78,7 @@ export function WildMonsterStats(props) {
         </div>
         <div className="card__title-container u-text-center">
             <h6>{props.monsterdata.name}</h6>
+            <p><b>{props.monsterdata.types}</b></p>
         </div>
         </div>
     )
