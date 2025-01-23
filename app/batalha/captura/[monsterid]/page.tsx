@@ -28,13 +28,13 @@ export default function MonsterStats() {
         )
     }
 
-    const totalTime = 21000
+    const totalTime = 31000
     const [monsterid,setmonsterid] = useState(m)
     const [navemon,setnavemon] = useState(NAVEmon[m])
     const [started, setStarted] = useState(false)
     const [currentTime,setCurrentTime] = useState(0)
     const [timeLeft, setTimeLeft] = useState(totalTime)
-    const [formattedTime, setFormattedTime] = useState(60)
+    const [formattedTime, setFormattedTime] = useState(30)
     const [questionBlock, setQuestionBlock] = useState([])
 
     const [loading,setLoading] = useState(true)
