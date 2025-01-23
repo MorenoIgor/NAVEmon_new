@@ -48,7 +48,7 @@ export default function MonsterStats() {
                     let id = iddata.id
                     let data = await getBattleDataById(parseInt(battleid))
 
-                    if (data==null) {
+                    if (data==null || (data.player1id!=id && data.player2id!=id)) {
                         router.replace("/inicio")
                     } else {
 
@@ -101,6 +101,10 @@ export default function MonsterStats() {
       }
 
       function getPoints(pointString) {
+
+        if (pointString=="") {
+            return "?"
+        }
       
       let arr = pointString.split(",")
       let points = 0
@@ -190,27 +194,30 @@ export default function MonsterStats() {
 
     } else if (overForMe) {
         return (
-            <section className="session">
-        <div className="battleResultContainer">
-            <div className="battleResultPanel">
-            <h2>{`${battleData.player1name}`}</h2>
+            <section>
+            <section className="u-center">
+            <section className="grid grid-cols-2 u-gap-2 w-80p">
+            <div className="content">
+            <h4>{`${battleData.player1name}`}</h4>
             <img className="NAVEmonBadgeImage" src={`/artwork/${battleData.player1monster}.png`}></img><br />
             <h3>Pontos: {getPoints(battleData.player1answers)}</h3>
             {
-                winner == 1 ? <h1>🏆</h1> : winner == 2 ? <h1>🏳️</h1> : <h1>🤝</h1>
+                winner == 1 ? <h1>🏆</h1> : winner == 2 ? <h1>🏳️</h1> : winner == -1? <h1></h1> :<h1>🤝</h1>
             }
             </div>
-            <div className="battleResultPanel">
-            <h2>{`${battleData.player2name}`}</h2>
+          
+            <div className="content">
+            <h4>{`${battleData.player2name}`}</h4>
             <img className="NAVEmonBadgeImage" src={`/artwork/${battleData.player2monster}.png`}></img><br />
             <h3>Pontos: {getPoints(battleData.player2answers)}</h3>
             {
-                winner == 2 ? <h1>🏆</h1> : winner == 1 ? <h1>🏳️</h1> : <h1>🤝</h1>
+                winner == 2 ? <h1>🏆</h1> : winner == 1 ? <h1>🏳️</h1> : winner == -1 ? <h1></h1> : <h1>🤝</h1>
             }
             </div>
-        </div>
-        <button className="m-4"  onClick={()=>{router.replace("/inicio/")}}>Voltar para o Início</button>
-        </section>
+            </section>
+            </section>
+            <button className="m-4"  onClick={()=>{router.replace("/inicio/")}}>Voltar para o Início</button>
+            </section>
         )
     }
 
