@@ -6,6 +6,8 @@ import { userAlreadyExists, startBattle, getChallenges, getChallengesReceived, g
 import { NAVEmon } from "@/data/navemon"
 import { useRouter } from "next/navigation"
 
+import { Loading } from "../components/loading"
+
 
 export default function Desafios() {
 
@@ -15,6 +17,8 @@ export default function Desafios() {
     const [challengesReceived, setChallengesReceived] = useState([])
     const [challengesMade, setChallengesMade] = useState([])
     const [playerInfo, setPlayerInfo] = useState({})
+
+    const [loading, setLoading] = useState(true)
 
     const router = useRouter()
 
@@ -60,6 +64,7 @@ export default function Desafios() {
                     }
 
                     setChallengesMade(arr)
+                    setLoading(false)
                 }
 
                 async function getPlayerInfo() {
@@ -94,6 +99,12 @@ export default function Desafios() {
 
     function goToBattle(battleid) {
         router.replace("/batalha/duelo/"+battleid)
+    }
+
+    if (loading) {
+        return (
+            <Loading />
+        )
     }
 
     return (

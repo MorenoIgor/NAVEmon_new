@@ -7,12 +7,15 @@ import { getUserMonsters } from "../databasefunctions"
 import { NAVEmon } from "@/data/navemon"
 import { useRouter } from "next/navigation"
 import {CaughtMonsterStats} from "../components/monsterstats"
+import { Loading } from "../components/loading"
 
 export default function Lista() {
 
     const {data: session,status} = useSession()
     const [monsterList, setMonsterList] = useState([])
     const [currentMonster, setCurrentMonster] = useState(-1)
+
+    const [loading, setLoading] = useState(true)
 
     const router = useRouter()
 
@@ -28,11 +31,18 @@ export default function Lista() {
                 let data = await getUserMonsters(session?.user.email)
                 setMonsterList(data.monsters.split(","))
                 setCurrentMonster(data.currentmonster)
+                setLoading(false)
                 
             }
             getMon()
         }
     ,[])
+
+    if (loading) {
+        return (
+            <Loading />
+        )
+    }
 
     return (
         <section className="section w-90p">
