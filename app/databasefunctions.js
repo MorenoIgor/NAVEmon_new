@@ -495,7 +495,7 @@ export async function catchNAVEmon(email,navemon) {
 
 async function dailyReset() {
 
-    const timestamp = Date.now() + 10800000;
+    const timestamp = Date.now() - 10800000;
     const currentDate = new Date(timestamp);
     const dayOfMonth = currentDate.getDate();
 
