@@ -10,14 +10,14 @@ const authOptions: AuthOptions = {
     // Configure one or more authentication providers
   providers: [
     GoogleProvider({
-      clientId: "203882821278-17qcjqtcj8eoidr9hjuor2njjl61019r.apps.googleusercontent.com",
-      clientSecret: "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",
+      clientId: process.env.GOOGLE_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
     })
   ],
   /*
   HERE
   */
-  secret: "KhDvG0yO0/xcIhXQrkRmnLhntE4UzPHlh9mIzUKE2xk="
+  secret: process.env.NEXTAUTH_SECRET
 
   /*
 GOOGLE_ID=203882821278-17qcjqtcj8eoidr9hjuor2njjl61019r.apps.googleusercontent.com
