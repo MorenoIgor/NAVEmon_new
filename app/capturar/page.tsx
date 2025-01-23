@@ -58,9 +58,9 @@ export default function Lista() {
     }
 
     return (
-        <div>
+        <section>
 
-          <div id="monsterListContainer">
+          <div className="grid grid-cols-5 u-gap-2">
           {
             monsterList.map(
                 (mon) => (
@@ -79,7 +79,7 @@ export default function Lista() {
           <h2>Capturas restantes: {playerInfo.catches}</h2>
           <p>{errorMessage}</p><br />
           <button onClick={()=>{router.replace("/inicio/")}}>Voltar para Início</button>
-        </div>
+        </section>
     )
 
 }

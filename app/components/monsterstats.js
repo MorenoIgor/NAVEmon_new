@@ -66,7 +66,7 @@ export function WildMonsterStats(props) {
         //     <h3>{props.monsterdata.name + star}</h3>
         //     <img className={clsnm} src={`/artwork/${props.monsterdata.id}.png`}></img>
         // </div>
-        <div className="card" style={{width: "200pt", margin: "6pt"}} onClick={
+        <div className="card" style={{margin: "6pt"}} onClick={
             ()=> {
                 goCatch() 
             }

@@ -25,8 +25,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             </div>
          </div>
       </div>
-        <section className="section">
-            <div className="content">
+        <section className="section u-text-center">
+            <div className="content u-center">
               <Providers session={session}>
                   {children}
               </Providers>

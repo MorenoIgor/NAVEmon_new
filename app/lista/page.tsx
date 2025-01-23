@@ -37,7 +37,7 @@ export default function Lista() {
     return (
         <div>
 
-          <div id="monsterListContainer">
+          <div className="grid grid-cols-5 u-gap-2">
           {
             monsterList.map(
                 (mon) => (
