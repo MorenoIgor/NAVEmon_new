@@ -443,6 +443,9 @@ export async function resolveBattle(bd) {
         }
     )
 
+    let c = parseInt(data.catches)-1
+    if (c<0) c = 0
+
     await prisma.user.update(
         {
             where: {
@@ -450,7 +453,7 @@ export async function resolveBattle(bd) {
             },
             data: 
             {
-                catches: parseInt(data.catches)-1
+                catches: c
             }
         }
     )

@@ -35,9 +35,9 @@ export default function Lista() {
     ,[])
 
     return (
-        <div>
+        <section className="section w-90p">
 
-          <div className="grid grid-cols-5 u-gap-2">
+          <div className="grid grid-cols-3 u-gap-2">
           {
             monsterList.map(
                 (mon) => (
@@ -52,8 +52,8 @@ export default function Lista() {
             )
           }
           </div>
-          <button onClick={()=>{router.replace("/inicio/")}}>Voltar para Início</button>
-        </div>
+          <button className="m-4" onClick={()=>{router.replace("/inicio/")}}>Voltar para Início</button>
+        </section>
     )
 
 }

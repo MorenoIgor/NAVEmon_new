@@ -8,6 +8,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import {QuestionBlock} from "../../../questionfunctions"
 import {BattleRenderer} from "../../../components/battlerenderer"
+import {Loading} from "../../../components/loading"
 
 let startTime
 let int1
@@ -33,7 +34,10 @@ export default function MonsterStats() {
     const [questionBlock, setQuestionBlock] = useState([])
     const [battleData, setBattleData] = useState({})
     const [playerId, setPlayerId] = useState(0)
+    const [winner, setWinner] = useState(-1)
     const [done, setDone] = useState(false)
+
+    const [loading,setLoading] = useState(true)
 
     int1 = setInterval(updateTime,1000);
 
@@ -44,19 +48,29 @@ export default function MonsterStats() {
                     let id = iddata.id
                     let data = await getBattleDataById(parseInt(battleid))
 
-
-                    if (data.player1done==true && data.player2done==true && data.status!="FINISHED") {
-                        data = await resolveBattle(data)
-                    }
-
-                    setBattleData(data)
-
-                    if (data.player1id==id) {
-                        setPlayerId(1)
-                        navemon = NAVEmon[data.player2monster]
+                    if (data==null) {
+                        router.replace("/inicio")
                     } else {
-                        setPlayerId(2)
-                        navemon = NAVEmon[data.player1monster]
+
+                        if (data.player1done==true && data.player2done==true && data.status!="FINISHED") {
+                            data = await resolveBattle(data)
+                        }
+
+                        setBattleData(data)
+
+                        if (data.player1id==id) {
+                            setPlayerId(1)
+                            navemon = NAVEmon[data.player2monster]
+                        } else {
+                            setPlayerId(2)
+                            navemon = NAVEmon[data.player1monster]
+                        }
+
+                        if (data.status=="FINISHED") {
+                            decideWinner(getPoints(data.player1answers),getPoints(data.player2answers))
+                        }
+
+                        setLoading(false)
                     }
                 }
                 getBattleData()
@@ -83,6 +97,32 @@ export default function MonsterStats() {
 
         if (time==0) {
             setStarted(false)
+        }
+      }
+
+      function getPoints(pointString) {
+      
+      let arr = pointString.split(",")
+      let points = 0
+
+        for (let i=0;i<5;i++) {
+            points += parseInt(arr[i])
+        }
+
+        return points
+
+    }
+
+    function decideWinner(p1,p2) {
+    
+        console.log("a")
+
+        if (p1>p2) {
+            setWinner(1)
+        } else if (p2>p1) {
+            setWinner(2)
+        } else {
+            setWinner(0)
         }
       }
 
@@ -116,6 +156,7 @@ export default function MonsterStats() {
         let wr = await writeBattleData(parseInt(battleid),data)
 
         setDone(true)
+
       }
 
       let overForMe = false
@@ -126,11 +167,17 @@ export default function MonsterStats() {
         overForMe = true
       }
 
+    if (loading) {
+        return (
+            <Loading />
+        )
+    }
+
     if (!started && !overForMe) {
         return (
             <div>
                 <h1>{playerId}</h1>
-                <button onClick={()=> {startBattle()}}>Comecar</button>
+                <button className="m-4"  onClick={()=> {startBattle()}}>Comecar</button>
             </div>
         )
     } else if (!overForMe) {
@@ -143,18 +190,27 @@ export default function MonsterStats() {
 
     } else if (overForMe) {
         return (
+            <section className="session">
         <div className="battleResultContainer">
             <div className="battleResultPanel">
             <h2>{`${battleData.player1name}`}</h2>
             <img className="NAVEmonBadgeImage" src={`/artwork/${battleData.player1monster}.png`}></img><br />
-            <p>{battleData.player1answers}</p>
+            <h3>Pontos: {getPoints(battleData.player1answers)}</h3>
+            {
+                winner == 1 ? <h1>🏆</h1> : winner == 2 ? <h1>🏳️</h1> : <h1>🤝</h1>
+            }
             </div>
             <div className="battleResultPanel">
             <h2>{`${battleData.player2name}`}</h2>
             <img className="NAVEmonBadgeImage" src={`/artwork/${battleData.player2monster}.png`}></img><br />
-            <p>{battleData.player2answers}</p>
+            <h3>Pontos: {getPoints(battleData.player2answers)}</h3>
+            {
+                winner == 2 ? <h1>🏆</h1> : winner == 1 ? <h1>🏳️</h1> : <h1>🤝</h1>
+            }
             </div>
         </div>
+        <button className="m-4"  onClick={()=>{router.replace("/inicio/")}}>Voltar para o Início</button>
+        </section>
         )
     }
 

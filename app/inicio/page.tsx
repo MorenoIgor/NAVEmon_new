@@ -5,6 +5,7 @@ import { useSession } from "next-auth/react"
 import { signOut } from "next-auth/react"
 import { useState,useEffect } from "react"
 import { getUserData } from "../databasefunctions"
+import { TopBar } from "../components/topbar"
 
 export default function Inicio() {
 
@@ -35,11 +36,11 @@ export default function Inicio() {
         <div className="content">
         <figure className="avatar avatar--xl"><img src={session?.user.image} /></figure>
         </div>
-        <button className="btn--lg" style={{margin: "10pt"}} onClick={() => signOut({ callbackUrl: '/'})}>Deslogar</button>
+        <button className="m-4"  className="btn--lg" style={{margin: "10pt"}} onClick={() => signOut({ callbackUrl: '/'})}>Deslogar</button>
 
-        <button className="btn--lg" style={{margin: "10pt"}} onClick={() => router.push("/lista")}>Meus NAVEMon</button>
-        <button className="btn--lg" style={{margin: "10pt"}} onClick={() => router.push("/capturar")}>Capturar NAVEMon</button>
-        <button className="btn--lg" style={{margin: "10pt"}} onClick={() => router.push("/desafios")}>Desafios</button>
+        <button className="m-4"  className="btn--lg" style={{margin: "10pt"}} onClick={() => router.push("/lista")}>Meus NAVEMon</button>
+        <button className="m-4"  className="btn--lg" style={{margin: "10pt"}} onClick={() => router.push("/capturar")}>Capturar NAVEMon</button>
+        <button className="m-4"  className="btn--lg" style={{margin: "10pt"}} onClick={() => router.push("/desafios")}>Desafios</button>
 
         <p>
             <b>Curso: </b>{playerInfo.course == "MULT" ? "MULTIMÍDIA" : "PROGRAMAÇÃO"}<br />

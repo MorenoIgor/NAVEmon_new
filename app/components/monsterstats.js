@@ -23,8 +23,7 @@ export function CaughtMonsterStats(props) {
         //     <h3>{props.monsterdata.name + star}</h3>
         //     <img className={clsnm} src={`/artwork/${props.monsterdata.id}.png`}></img>
         // </div>
-
-        <div className="card" style={{width: "200pt", margin: "6pt"}} onClick={
+        <div className="u-round-md u-shadow-md" onClick={
                 ()=> {
                     router.push("/navedex/"+props.monsterdata.id)   
                 }
@@ -35,7 +34,7 @@ export function CaughtMonsterStats(props) {
         </div>
         </div>
         <div className="card__title-container u-text-center">
-            <h4>{props.monsterdata.name + star}</h4>
+            <h6>{props.monsterdata.name + star}</h6>
         </div>
         </div>
     )
@@ -66,7 +65,7 @@ export function WildMonsterStats(props) {
         //     <h3>{props.monsterdata.name + star}</h3>
         //     <img className={clsnm} src={`/artwork/${props.monsterdata.id}.png`}></img>
         // </div>
-        <div className="card" style={{margin: "6pt"}} onClick={
+        <div className="u-round-md u-shadow-md" onClick={
             ()=> {
                 goCatch() 
             }
@@ -77,7 +76,7 @@ export function WildMonsterStats(props) {
             </div>
         </div>
         <div className="card__title-container u-text-center">
-            <h4>{props.monsterdata.name}</h4>
+            <h6>{props.monsterdata.name}</h6>
         </div>
         </div>
     )

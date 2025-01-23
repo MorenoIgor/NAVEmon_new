@@ -16,7 +16,7 @@ export default function Home() {
 function NoAuth(session: object) {
   return (
       <div>
-      <button onClick={() => signIn("google", { callbackUrl: '/'} )}>Sign in with Google</button>
+      <button className="m-4"  onClick={() => signIn("google", { callbackUrl: '/'} )}>Sign in with Google</button>
       </div>
   )
 }

@@ -3,11 +3,12 @@
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { NAVEmon } from "@/data/navemon";
-import { reduceCatches, catchNAVEmon } from "@/app/databasefunctions";
+import { reduceCatches, catchNAVEmon, getUserData } from "@/app/databasefunctions";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import {QuestionBlock} from "../../../questionfunctions"
 import {BattleRenderer} from "../../../components/battlerenderer"
+import {Loading} from "../../../components/loading"
 
 let startTime : number
 let int1 : any
@@ -16,7 +17,8 @@ export default function MonsterStats() {
 
     const {data: session,status} = useSession()
     //const monsterid : number = useParams().monsterid
-    let m : number = useParams().monsterid
+    let m = useParams().monsterid
+    m = parseInt(m)
     //const navemon = NAVEmon[parseInt(monsterid)]
     const router = useRouter()
 
@@ -34,6 +36,8 @@ export default function MonsterStats() {
     const [timeLeft, setTimeLeft] = useState(totalTime)
     const [formattedTime, setFormattedTime] = useState(60)
     const [questionBlock, setQuestionBlock] = useState([])
+
+    const [loading,setLoading] = useState(true)
 
     int1 = setInterval(updateTime,1000);
 
@@ -70,10 +74,30 @@ export default function MonsterStats() {
         }
     }
 
+    useEffect(
+                () => {
+                    async function getCatches() {
+                        let data = await getUserData(session?.user.email)
+    
+                        if (parseInt(data.catches)<=0) {
+                            router.replace("/inicio")
+                        }
+                        setLoading(false)
+                    }
+                    getCatches()
+                }
+            ,[])
+
+    if (loading) {
+        return (
+            <Loading />
+        )
+    }
+
     if (!started) {
         return (
             <div>
-                <button onClick={()=> {startCatch()}}>Comecar</button>
+                <button className="m-4" onClick={()=> {startCatch()}}>Comecar</button>
             </div>
         )
     } else {

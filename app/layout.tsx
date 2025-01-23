@@ -1,7 +1,9 @@
+
 import type { Metadata } from "next";
 
 import { getSession } from "./auth"
 import Providers from "./providers"
+import { TopBar } from "./components/topbar";
 
 import './globals.css'
 
@@ -18,13 +20,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
       <html lang="en">
           <body>
-          <div className="header unselectable header-animated">
-         <div className="header-brand">
-            <div className="nav-item no-hover">
-               <h6 className="title"><img src="/logo/logo.png" style={{height: "48pt"}} /></h6>
-            </div>
-         </div>
-      </div>
+          <TopBar />
         <section className="section u-text-center">
             <div className="content u-center">
               <Providers session={session}>

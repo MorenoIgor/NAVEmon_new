@@ -40,7 +40,7 @@ export default function CreateUserPage() {
                 <option value="2">Segundo</option>
                 <option value="3">Terceiro</option>
             </select>
-            <button onClick={()=>startCreatingUser()}>Criar</button>
+            <button className="m-4"  onClick={()=>startCreatingUser()}>Criar</button>
         </div>
 
     )

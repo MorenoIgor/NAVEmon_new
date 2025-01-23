@@ -6,6 +6,7 @@ import { getUserData } from "../databasefunctions"
 //import { getNAVEmon} from "../navemonfunctions"
 import { NAVEmon } from "@/data/navemon"
 import {WildMonsterStats} from "../components/monsterstats"
+import {Loading} from "../components/loading"
 import { useRouter } from "next/navigation"
 
 export default function Lista() {
@@ -15,6 +16,8 @@ export default function Lista() {
     const [playerInfo, setPlayerInfo] = useState({})
     const [errorMessage, setErrorMesage] = useState("")
     const [canCatch, setCanCatch] = useState(true)
+
+    const [loading, setLoading] = useState(true)
 
     const router = useRouter()
 
@@ -48,6 +51,7 @@ export default function Lista() {
                 } else {
                     setCanCatch(false)
                 }
+                setLoading(false)
             }
             getMon()
         }
@@ -57,10 +61,16 @@ export default function Lista() {
         setErrorMesage("Você não tem capturas suficientes! Volte amanhã!")
     }
 
-    return (
-        <section>
+    if (loading) {
+        return (
+            <Loading />
+        )
+    }
 
-          <div className="grid grid-cols-5 u-gap-2">
+    return (
+        <section className="section w-90p">
+
+          <div className="grid grid-cols-3 u-gap-2">
           {
             monsterList.map(
                 (mon) => (
@@ -78,7 +88,7 @@ export default function Lista() {
           </div>
           <h2>Capturas restantes: {playerInfo.catches}</h2>
           <p>{errorMessage}</p><br />
-          <button onClick={()=>{router.replace("/inicio/")}}>Voltar para Início</button>
+          <button className="m-4"  onClick={()=>{router.replace("/inicio/")}}>Voltar para Início</button>
         </section>
     )
 

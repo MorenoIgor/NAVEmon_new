@@ -125,9 +125,9 @@ export default function Desafios() {
 
             <b>Desafios restantes: {playerInfo.challenges}</b><br />
             <input id="challenge"></input>
-            <button onClick={()=>challenge()}>Desafiar</button>
+            <button className="m-4"  onClick={()=>challenge()}>Desafiar</button>
             <p>{challengeError}</p>
-            <p><button onClick={()=>{router.replace("/inicio/")}}>Voltar para Início</button></p>
+            <p><button className="m-4"  onClick={()=>{router.replace("/inicio/")}}>Voltar para Início</button></p>
         </div>
 
     )
