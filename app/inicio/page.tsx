@@ -30,21 +30,23 @@ export default function Inicio() {
         ,[])
 
     return (
-        <div>
+        <section className="section">
         <h1>{session?.user.name}</h1>
-        <img src={session?.user.image} /> <br />
-        <button onClick={() => signOut({ callbackUrl: '/'})}>Deslogar</button>
+        <div className="content">
+        <figure className="avatar avatar--xl"><img src={session?.user.image} /></figure>
+        </div>
+        <button className="btn--lg" style={{margin: "10pt"}} onClick={() => signOut({ callbackUrl: '/'})}>Deslogar</button>
 
-        <button onClick={() => router.push("/lista")}>Meus NAVEMon</button>
-        <button onClick={() => router.push("/capturar")}>Capturar NAVEMon</button>
-        <button onClick={() => router.push("/desafios")}>Desafios</button>
+        <button className="btn--lg" style={{margin: "10pt"}} onClick={() => router.push("/lista")}>Meus NAVEMon</button>
+        <button className="btn--lg" style={{margin: "10pt"}} onClick={() => router.push("/capturar")}>Capturar NAVEMon</button>
+        <button className="btn--lg" style={{margin: "10pt"}} onClick={() => router.push("/desafios")}>Desafios</button>
 
         <p>
             <b>Curso: </b>{playerInfo.course == "MULT" ? "MULTIMÍDIA" : "PROGRAMAÇÃO"}<br />
             <b>Série: </b>{playerInfo.year}<br />
         </p>
 
-        </div>
+        </section>
     )
 
 }

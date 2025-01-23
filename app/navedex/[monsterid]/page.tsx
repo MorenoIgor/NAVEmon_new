@@ -38,9 +38,9 @@ export default function MonsterStats() {
         ,[current])
 
     return (
-        <div>
+        <div className="content">
         <h1>{NAVEmon[monsterid].name}{current == true? "⭐" : ""}</h1>
-        <img src={`/artwork/${monsterid}.png`}></img><br />
+        <img className="u-center" src={`/artwork/${monsterid}.png`}></img><br />
         <button onClick={()=>changeMain()}>Tornar Principal</button><br />
         <button onClick={()=>{router.replace("/lista/")}}>Voltar para Lista</button>
         </div>

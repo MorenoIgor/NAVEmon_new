@@ -37,13 +37,15 @@ export function BattleRenderer(props) {
     if (!finished) {
 
     return (
-        <div>
+        <div className="card">
+        <div className="content w-90p">
         <h1>{props.time}</h1>
-        <h2>{questionList[currentQuestion].question}</h2>
-        <p onClick={()=>nextQuestion(1)}>{questionList[currentQuestion].answer_1}</p>
-        <p onClick={()=>nextQuestion(2)}>{questionList[currentQuestion].answer_2}</p>
-        <p onClick={()=>nextQuestion(3)}>{questionList[currentQuestion].answer_3}</p>
-        <p onClick={()=>nextQuestion(4)}>{questionList[currentQuestion].answer_4}</p>
+        <h2 className="title">{questionList[currentQuestion].question}</h2>
+        <div className="battleOption u-border-2 u-round-xl u-shadow-md"><h5 onClick={()=>nextQuestion(1)}>{questionList[currentQuestion].answer_1}</h5></div>
+        <div className="battleOption u-border-2 u-round-xl u-shadow-md"><h5 onClick={()=>nextQuestion(2)}>{questionList[currentQuestion].answer_2}</h5></div>
+        <div className="battleOption u-border-2 u-round-xl u-shadow-md"><h5 onClick={()=>nextQuestion(3)}>{questionList[currentQuestion].answer_3}</h5></div>
+        <div className="battleOption u-border-2 u-round-xl u-shadow-md"><h5 onClick={()=>nextQuestion(4)}>{questionList[currentQuestion].answer_4}</h5></div>
+        </div>
         </div>
 
     )

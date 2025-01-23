@@ -430,7 +430,34 @@ export async function resolveBattle(bd) {
 
   }
 
-export async function catchNAVEmon(email,navemon,caught) {
+ export async function reduceCatches(email) {
+
+    let data = await prisma.user.findFirst(
+        {
+            where: {
+                email: email
+            },
+            select: {
+                catches: true
+            }
+        }
+    )
+
+    await prisma.user.update(
+        {
+            where: {
+                email: email
+            },
+            data: 
+            {
+                catches: parseInt(data.catches)-1
+            }
+        }
+    )
+    
+ }
+
+export async function catchNAVEmon(email,navemon) {
 
     let data = await prisma.user.findFirst(
         {
@@ -446,15 +473,11 @@ export async function catchNAVEmon(email,navemon,caught) {
 
     let data2 = {}
 
-    if (caught==true) {
+    let monsters = data.monsters
+    let newmonsters = monsters + `,${navemon}`
 
-        let monsters = data.monsters
-        let newmonsters = monsters + `,${navemon}`
+    data2.monsters = newmonsters
 
-        data2.monsters = newmonsters
-    }
-
-    data2.catches = parseInt(data.catches)-1
 
         await prisma.user.update(
             {

@@ -136,7 +136,7 @@ export default function MonsterStats() {
     } else if (!overForMe) {
 
     return (
-        <div>
+        <div  className="content u-center">
             <BattleRenderer questionlist={questionBlock} time={formattedTime} mode="BATTLE" callback={finishBattle} />
         </div>
     )

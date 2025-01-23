@@ -32,3 +32,12 @@
 width: 400pt;
 text-align: center;
 }
+
+.battleOption {
+margin: 8pt;
+}
+
+.battleOption:hover {
+background-color: lightskyblue;
+cursor: pointer;
+}

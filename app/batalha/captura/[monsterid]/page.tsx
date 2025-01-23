@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { NAVEmon } from "@/data/navemon";
-import { catchNAVEmon } from "@/app/databasefunctions";
+import { reduceCatches, catchNAVEmon } from "@/app/databasefunctions";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import {QuestionBlock} from "../../../questionfunctions"
@@ -34,11 +34,12 @@ export default function MonsterStats() {
 
     int1 = setInterval(updateTime,1000);
 
-    function startCatch() {
+    async function startCatch() {
         startTime = Date.now()
         setCurrentTime(Date.now())
         setStarted(true)
         setQuestionBlock(QuestionBlock(navemon.types,5))
+        await reduceCatches(session.user.email)
     }
 
     function formatTime(time) {
@@ -60,9 +61,8 @@ export default function MonsterStats() {
     async function resolveCatch(gotIt) {
         if (gotIt==true) { 
             let cap = await catchNAVEmon(session.user.email,monsterid,true)
-            router.replace("/navedex/"+monsterid)
+            router.push("/navedex/"+monsterid)
         } else {
-            await catchNAVEmon(session.user.email,monsterid,false)
             router.replace("/capturar")
         }
     }
@@ -76,7 +76,7 @@ export default function MonsterStats() {
     } else {
 
     return (
-        <div>
+        <div className="content u-center">
             <BattleRenderer questionlist={questionBlock} time={formattedTime} mode="CATCH" callback={resolveCatch} />
         </div>
     )
