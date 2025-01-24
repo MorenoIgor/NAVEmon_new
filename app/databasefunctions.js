@@ -285,12 +285,23 @@ export async function getBattleData(userid,otherid) {
     )
 }
 
-export async function getChallengesReceived(userid) {
+export async function getChallengesReceived(email) {
+
+    let iddata = await prisma.user.findFirst(
+        {
+            where: {
+                email: email
+            },
+            select: {
+                id: true
+            }
+        }
+    )
 
     return await prisma.battle.findMany(
         {
             where: {
-                    player2id: userid,
+                    player2id: parseInt(iddata.id),
                     NOT: {
                         status: "FINISHED"
                       }
@@ -304,12 +315,23 @@ export async function getChallengesReceived(userid) {
     )
 }
 
-export async function getChallengesMade(userid) {
+export async function getChallengesMade(email) {
+
+    let iddata = await prisma.user.findFirst(
+        {
+            where: {
+                email: email
+            },
+            select: {
+                id: true
+            }
+        }
+    )
 
     return await prisma.battle.findMany(
         {
             where: {
-                    player1id: userid,
+                    player1id: parseInt(iddata.id),
                     NOT: {
                         status: "FINISHED"
                       }

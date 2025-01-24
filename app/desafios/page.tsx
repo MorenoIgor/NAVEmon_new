@@ -25,11 +25,11 @@ export default function Desafios() {
         useEffect(
             () => {
                 async function retrieveChallengesReceived() {
-                    let data = await getUserId(session?.user.email)
+                    // let data = await getUserId(session?.user.email)
 
-                    let uid = parseInt(data.id)
+                    // let uid = parseInt(data.id)
 
-                    let cr = await getChallengesReceived(uid)
+                    let cr = await getChallengesReceived(session?.user.email)
 
                     let arr = []
 
@@ -46,11 +46,11 @@ export default function Desafios() {
                 }
 
                 async function retrieveChallengesMade() {
-                    let data = await getUserId(session?.user.email)
+                    // let data = await getUserId(session?.user.email)
 
-                    let uid = parseInt(data.id)
+                    // let uid = parseInt(data.id)
 
-                    let cr = await getChallengesMade(uid)
+                    let cr = await getChallengesMade(session?.user.email)
 
                     let arr = []
 
