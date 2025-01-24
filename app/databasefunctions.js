@@ -176,7 +176,7 @@ export async function startBattle(useremail,otheremail) {
     await addBattleToUser(me.id,battle.id,"made")
 
     await writeUserDataById(me.id, {
-        challenges: 0
+        challenges: parseInt(me.challenges) - 1
     })
 
     return battle
@@ -425,6 +425,8 @@ export async function resolveBattle(bd) {
     let ret = bd
 
     ret.status = "FINISHED"
+
+    console.log(ret)
 
     return ret
 

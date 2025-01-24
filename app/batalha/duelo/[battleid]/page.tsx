@@ -26,16 +26,17 @@ export default function MonsterStats() {
         )
     }
 
-    const totalTime = 31000
+    const totalTime = 61000
     const [started, setStarted] = useState(false)
     const [currentTime,setCurrentTime] = useState(0)
     const [timeLeft, setTimeLeft] = useState(totalTime)
-    const [formattedTime, setFormattedTime] = useState(30)
+    const [formattedTime, setFormattedTime] = useState(60)
     const [questionBlock, setQuestionBlock] = useState([])
     const [battleData, setBattleData] = useState({})
     const [playerId, setPlayerId] = useState(0)
     const [winner, setWinner] = useState(-1)
     const [done, setDone] = useState(false)
+    const [finishedPlaying, setFinishedPlaying] = useState(false)
 
     const [loading,setLoading] = useState(true)
 
@@ -53,10 +54,9 @@ export default function MonsterStats() {
                     } else {
 
                         if (data.player1done==true && data.player2done==true && data.status!="FINISHED") {
-                            data = await resolveBattle(data)
+                            await resolveBattle(data)
+                            data.status = "FINISHED"
                         }
-
-                        setBattleData(data)
 
                         if (data.player1id==id) {
                             setPlayerId(1)
@@ -70,6 +70,7 @@ export default function MonsterStats() {
                             decideWinner(getPoints(data.player1answers),getPoints(data.player2answers))
                         }
 
+                        setBattleData(data)
                         setLoading(false)
                     }
                 }
@@ -118,8 +119,6 @@ export default function MonsterStats() {
     }
 
     function decideWinner(p1,p2) {
-    
-        console.log("a")
 
         if (p1>p2) {
             setWinner(1)
@@ -159,7 +158,7 @@ export default function MonsterStats() {
 
         let wr = await writeBattleData(parseInt(battleid),data)
 
-        setDone(true)
+        setFinishedPlaying(true)
 
       }
 
@@ -180,16 +179,20 @@ export default function MonsterStats() {
     if (!started && !overForMe) {
         return (
             <div>
-                <h1>{playerId}</h1>
-                <button className="m-4"  onClick={()=> {startBattle()}}>Comecar</button>
+                <h4>{playerId == 1 ? `${battleData.player2name}` : `${battleData.player1name}` }</h4>
+                <img className="NAVEmonBadgeImage" src={playerId == 1 ? `/artwork/${battleData.player2monster}.png` : `/artwork/${battleData.player1monster}.png`}></img><br />
+                <button className="m-4" onClick={()=> {startBattle()}}>Comecar</button>
             </div>
         )
     } else if (!overForMe) {
 
     return (
-        <div  className="content u-center">
+        <section>
+        <section className="content u-center">
             <BattleRenderer questionlist={questionBlock} time={formattedTime} mode="BATTLE" callback={finishBattle} />
-        </div>
+        </section>
+            {finishedPlaying ? <button className="m-4" onClick={()=> {setDone(true)}}>Finalizar</button> : ""}
+        </section>
     )
 
     } else if (overForMe) {

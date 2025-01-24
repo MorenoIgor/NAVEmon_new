@@ -1,908 +1,668 @@
 export const questions = [
+  // Math (MAT) Questions
     {
-        id: "0",
-        type: "AAA",
-        level: "3",
-        question: "AAAAAAAAA",
-        answer_1: "BBBBBBBB",
-        answer_2: "CCCCCC",
-        answer_3: "DDDDDDDDD",
-        answer_4: "EEEEEEEEE",
-        rightanswer: "3"
-    },
-    // Math (MAT) Questions
-    {
-      id: "1",
-      type: "MAT",
-      level: "1",
-      question: "Quanto é 5 + 7?",
-      answer_1: "10",
-      answer_2: "12",
-      answer_3: "14",
-      answer_4: "16",
-      rightanswer: "2"
-    },
-    {
-      id: "2",
-      type: "MAT",
-      level: "1",
-      question: "Quanto é 9 × 3?",
-      answer_1: "18",
-      answer_2: "27",
-      answer_3: "36",
-      answer_4: "45",
-      rightanswer: "2"
-    },
-    {
-      id: "3",
-      type: "MAT",
-      level: "1",
-      question: "Qual é a raiz quadrada de 16?",
-      answer_1: "2",
-      answer_2: "4",
-      answer_3: "6",
-      answer_4: "8",
-      rightanswer: "2"
-    },
-    {
-      id: "4",
-      type: "MAT",
-      level: "1",
-      question: "Quanto é 20 ÷ 4?",
-      answer_1: "3",
-      answer_2: "4",
-      answer_3: "5",
-      answer_4: "6",
+      id: "0",
+      type: "AAA",
+      level: "3",
+      question: "AAAAAAAAA",
+      answer_1: "BBBBBBBB",
+      answer_2: "CCCCCC",
+      answer_3: "DDDDDDDDD",
+      answer_4: "EEEEEEEEE",
       rightanswer: "3"
-    },
-    {
-      id: "5",
-      type: "MAT",
-      level: "1",
-      question: "Qual é o dobro de 8?",
-      answer_1: "10",
-      answer_2: "12",
-      answer_3: "16",
-      answer_4: "18",
-      rightanswer: "3"
-    },
-    {
-      id: "6",
-      type: "MAT",
-      level: "1",
-      question: "Quanto é 15 - 9?",
-      answer_1: "4",
-      answer_2: "5",
-      answer_3: "6",
-      answer_4: "7",
-      rightanswer: "3"
-    },
-    {
-      id: "7",
-      type: "MAT",
-      level: "1",
-      question: "Qual é o valor de π (pi) arredondado para uma casa decimal?",
-      answer_1: "3.1",
-      answer_2: "3.2",
-      answer_3: "3.3",
-      answer_4: "3.4",
-      rightanswer: "1"
-    },
-    {
-      id: "8",
-      type: "MAT",
-      level: "1",
-      question: "Quanto é 3²?",
-      answer_1: "6",
-      answer_2: "9",
-      answer_3: "12",
-      answer_4: "15",
-      rightanswer: "2"
-    },
-    {
-      id: "9",
-      type: "MAT",
-      level: "1",
-      question: "Qual é o perímetro de um quadrado com lado 5 cm?",
-      answer_1: "10 cm",
-      answer_2: "15 cm",
-      answer_3: "20 cm",
-      answer_4: "25 cm",
-      rightanswer: "3"
-    },
-    {
-      id: "10",
-      type: "MAT",
-      level: "1",
-      question: "Quanto é 100 ÷ 10?",
-      answer_1: "5",
-      answer_2: "10",
-      answer_3: "15",
-      answer_4: "20",
-      rightanswer: "2"
-    },
-  
-    // Chemistry (QUI) Questions
-    {
-      id: "11",
-      type: "QUI",
-      level: "1",
-      question: "Qual é o símbolo químico da água?",
-      answer_1: "CO₂",
-      answer_2: "H₂O",
-      answer_3: "O₂",
-      answer_4: "NaCl",
-      rightanswer: "2"
-    },
-    {
-      id: "12",
-      type: "QUI",
-      level: "1",
-      question: "Qual é o gás que respiramos?",
-      answer_1: "Hidrogênio",
-      answer_2: "Oxigênio",
-      answer_3: "Nitrogênio",
-      answer_4: "Dióxido de carbono",
-      rightanswer: "2"
-    },
-    {
-      id: "13",
-      type: "QUI",
-      level: "1",
-      question: "Qual é o estado físico da água em temperatura ambiente?",
-      answer_1: "Sólido",
-      answer_2: "Líquido",
-      answer_3: "Gasoso",
-      answer_4: "Plasma",
-      rightanswer: "2"
-    },
-    {
-      id: "14",
-      type: "QUI",
-      level: "1",
-      question: "Qual é o símbolo químico do carbono?",
-      answer_1: "C",
-      answer_2: "Co",
-      answer_3: "Ca",
-      answer_4: "Cu",
-      rightanswer: "1"
-    },
-    {
-      id: "15",
-      type: "QUI",
-      level: "1",
-      question: "Qual é o principal componente do ar?",
-      answer_1: "Oxigênio",
-      answer_2: "Nitrogênio",
-      answer_3: "Dióxido de carbono",
-      answer_4: "Hidrogênio",
-      rightanswer: "2"
-    },
-    {
-      id: "16",
-      type: "QUI",
-      level: "1",
-      question: "Qual é o símbolo químico do ouro?",
-      answer_1: "Au",
-      answer_2: "Ag",
-      answer_3: "Fe",
-      answer_4: "Cu",
-      rightanswer: "1"
-    },
-    {
-      id: "17",
-      type: "QUI",
-      level: "1",
-      question: "Qual é o pH da água pura?",
-      answer_1: "5",
-      answer_2: "7",
-      answer_3: "9",
-      answer_4: "11",
-      rightanswer: "2"
-    },
-    {
-      id: "18",
-      type: "QUI",
-      level: "1",
-      question: "Qual é o nome do processo de mudança de líquido para gás?",
-      answer_1: "Fusão",
-      answer_2: "Solidificação",
-      answer_3: "Evaporação",
-      answer_4: "Condensação",
-      rightanswer: "3"
-    },
-    {
-      id: "19",
-      type: "QUI",
-      level: "1",
-      question: "Qual é o símbolo químico do sódio?",
-      answer_1: "So",
-      answer_2: "Na",
-      answer_3: "S",
-      answer_4: "K",
-      rightanswer: "2"
-    },
-    {
-      id: "20",
-      type: "QUI",
-      level: "1",
-      question: "Qual é o gás liberado pelas plantas durante a fotossíntese?",
-      answer_1: "Oxigênio",
-      answer_2: "Dióxido de carbono",
-      answer_3: "Nitrogênio",
-      answer_4: "Hidrogênio",
-      rightanswer: "1"
-    },
-  
-    // Biology (BIO) Questions
-    {
-      id: "21",
-      type: "BIO",
-      level: "1",
-      question: "Qual é o maior órgão do corpo humano?",
-      answer_1: "Coração",
-      answer_2: "Pele",
-      answer_3: "Fígado",
-      answer_4: "Cérebro",
-      rightanswer: "2"
-    },
-    {
-      id: "22",
-      type: "BIO",
-      level: "1",
-      question: "Quantos pulmões os seres humanos têm?",
-      answer_1: "1",
-      answer_2: "2",
-      answer_3: "3",
-      answer_4: "4",
-      rightanswer: "2"
-    },
-    {
-      id: "23",
-      type: "BIO",
-      level: "1",
-      question: "Qual é a função das raízes das plantas?",
-      answer_1: "Fazer fotossíntese",
-      answer_2: "Absorver água e nutrientes",
-      answer_3: "Produzir flores",
-      answer_4: "Proteger a planta",
-      rightanswer: "2"
-    },
-    {
-      id: "24",
-      type: "BIO",
-      level: "1",
-      question: "Qual é o animal conhecido como 'rei da selva'?",
-      answer_1: "Elefante",
-      answer_2: "Leão",
-      answer_3: "Tigre",
-      answer_4: "Girafa",
-      rightanswer: "2"
-    },
-    {
-      id: "25",
-      type: "BIO",
-      level: "1",
-      question: "Qual é o processo pelo qual as plantas produzem seu alimento?",
-      answer_1: "Respiração",
-      answer_2: "Fotossíntese",
-      answer_3: "Digestão",
-      answer_4: "Transpiração",
-      rightanswer: "2"
-    },
-    {
-      id: "26",
-      type: "BIO",
-      level: "1",
-      question: "Quantos ossos tem o corpo humano?",
-      answer_1: "106",
-      answer_2: "206",
-      answer_3: "306",
-      answer_4: "406",
-      rightanswer: "2"
-    },
-    {
-      id: "27",
-      type: "BIO",
-      level: "1",
-      question: "Qual é o nome do processo de divisão celular?",
-      answer_1: "Fotossíntese",
-      answer_2: "Mitose",
-      answer_3: "Respiração",
-      answer_4: "Digestão",
-      rightanswer: "2"
-    },
-    {
-      id: "28",
-      type: "BIO",
-      level: "1",
-      question: "Qual é o maior animal do mundo?",
-      answer_1: "Elefante",
-      answer_2: "Baleia-azul",
-      answer_3: "Tubarão-branco",
-      answer_4: "Girafa",
-      rightanswer: "2"
-    },
-    {
-      id: "29",
-      type: "BIO",
-      level: "1",
-      question: "Qual é o nome do processo de transformação de lagarta em borboleta?",
-      answer_1: "Fotossíntese",
-      answer_2: "Metamorfose",
-      answer_3: "Respiração",
-      answer_4: "Digestão",
-      rightanswer: "2"
-    },
-    {
-      id: "30",
-      type: "BIO",
-      level: "1",
-      question: "Qual é o nome do sistema que inclui o coração e os vasos sanguíneos?",
-      answer_1: "Sistema nervoso",
-      answer_2: "Sistema circulatório",
-      answer_3: "Sistema digestivo",
-      answer_4: "Sistema respiratório",
-      rightanswer: "2"
-    },
-  
-    // History (HIS) Questions
-    {
-      id: "31",
-      type: "HIS",
-      level: "1",
-      question: "Quem descobriu o Brasil?",
-      answer_1: "Cristóvão Colombo",
-      answer_2: "Pedro Álvares Cabral",
-      answer_3: "Fernão de Magalhães",
-      answer_4: "Vasco da Gama",
-      rightanswer: "2"
-    },
-    {
-      id: "32",
-      type: "HIS",
-      level: "1",
-      question: "Em que ano o Brasil foi descoberto?",
-      answer_1: "1492",
-      answer_2: "1500",
-      answer_3: "1600",
-      answer_4: "1700",
-      rightanswer: "2"
-    },
-    {
-      id: "33",
-      type: "HIS",
-      level: "1",
-      question: "Qual foi a primeira capital do Brasil?",
-      answer_1: "Rio de Janeiro",
-      answer_2: "Brasília",
-      answer_3: "Salvador",
-      answer_4: "São Paulo",
-      rightanswer: "3"
-    },
-    {
-      id: "34",
-      type: "HIS",
-      level: "1",
-      question: "Quem foi o primeiro presidente do Brasil?",
-      answer_1: "Getúlio Vargas",
-      answer_2: "Deodoro da Fonseca",
-      answer_3: "Juscelino Kubitschek",
-      answer_4: "Dom Pedro II",
-      rightanswer: "2"
-    },
-    {
-      id: "35",
-      type: "HIS",
-      level: "1",
-      question: "Qual foi o período da escravidão no Brasil?",
-      answer_1: "Século XV",
-      answer_2: "Século XVI ao XIX",
-      answer_3: "Século XX",
-      answer_4: "Século XXI",
-      rightanswer: "2"
-    },
-    {
-      id: "36",
-      type: "HIS",
-      level: "1",
-      question: "Quem proclamou a independência do Brasil?",
-      answer_1: "Dom Pedro I",
-      answer_2: "Dom Pedro II",
-      answer_3: "Getúlio Vargas",
-      answer_4: "Deodoro da Fonseca",
-      rightanswer: "1"
-    },
-    {
-      id: "37",
-      type: "HIS",
-      level: "1",
-      question: "Qual foi o principal produto econômico do Brasil no período colonial?",
-      answer_1: "Café",
-      answer_2: "Açúcar",
-      answer_3: "Ouro",
-      answer_4: "Petróleo",
-      rightanswer: "2"
-    },
-    {
-      id: "38",
-      type: "HIS",
-      level: "1",
-      question: "Qual foi o nome do movimento que levou à Proclamação da República no Brasil?",
-      answer_1: "Revolução Farroupilha",
-      answer_2: "Revolução de 1930",
-      answer_3: "Golpe da Maioridade",
-      answer_4: "Proclamação da República",
-      rightanswer: "4"
-    },
-    {
-      id: "39",
-      type: "HIS",
-      level: "1",
-      question: "Qual foi o principal tratado que dividiu o Brasil entre Portugal e Espanha?",
-      answer_1: "Tratado de Tordesilhas",
-      answer_2: "Tratado de Madri",
-      answer_3: "Tratado de Petrópolis",
-      answer_4: "Tratado de Utrecht",
-      rightanswer: "1"
-    },
-    {
-      id: "40",
-      type: "HIS",
-      level: "1",
-      question: "Qual foi o nome do primeiro governador-geral do Brasil?",
-      answer_1: "Tomé de Sousa",
-      answer_2: "Duarte da Costa",
-      answer_3: "Mem de Sá",
-      answer_4: "Marquês de Pombal",
-      rightanswer: "1"
-    },
-  
-    // Geography (GEO) Questions
-    {
-      id: "41",
-      type: "GEO",
-      level: "1",
-      question: "Qual é o maior país do mundo em área territorial?",
-      answer_1: "China",
-      answer_2: "Estados Unidos",
-      answer_3: "Rússia",
-      answer_4: "Canadá",
-      rightanswer: "3"
-    },
-    {
-      id: "42",
-      type: "GEO",
-      level: "1",
-      question: "Qual é o rio mais longo do mundo?",
-      answer_1: "Rio Amazonas",
-      answer_2: "Rio Nilo",
-      answer_3: "Rio Yangtzé",
-      answer_4: "Rio Mississipi",
-      rightanswer: "2"
-    },
-    {
-      id: "43",
-      type: "GEO",
-      level: "1",
-      question: "Qual é o nome da linha imaginária que divide a Terra em hemisférios norte e sul?",
-      answer_1: "Trópico de Câncer",
-      answer_2: "Trópico de Capricórnio",
-      answer_3: "Linha do Equador",
-      answer_4: "Círculo Polar Ártico",
-      rightanswer: "3"
-    },
-    {
-      id: "44",
-      type: "GEO",
-      level: "1",
-      question: "Qual é o maior oceano do mundo?",
-      answer_1: "Oceano Atlântico",
-      answer_2: "Oceano Índico",
-      answer_3: "Oceano Pacífico",
-      answer_4: "Oceano Ártico",
-      rightanswer: "3"
-    },
-    {
-      id: "45",
-      type: "GEO",
-      level: "1",
-      question: "Qual é o país mais populoso do mundo?",
-      answer_1: "Índia",
-      answer_2: "Estados Unidos",
-      answer_3: "China",
-      answer_4: "Brasil",
-      rightanswer: "3"
-    },
-    {
-      id: "46",
-      type: "GEO",
-      level: "1",
-      question: "Qual é o nome da capital da França?",
-      answer_1: "Londres",
-      answer_2: "Berlim",
-      answer_3: "Paris",
-      answer_4: "Roma",
-      rightanswer: "3"
-    },
-    {
-      id: "47",
-      type: "GEO",
-      level: "1",
-      question: "Qual é o nome da cordilheira mais extensa do mundo?",
-      answer_1: "Himalaia",
-      answer_2: "Andes",
-      answer_3: "Alpes",
-      answer_4: "Montanhas Rochosas",
-      rightanswer: "2"
-    },
-    {
-      id: "48",
-      type: "GEO",
-      level: "1",
-      question: "Qual é o nome do deserto mais quente do mundo?",
-      answer_1: "Deserto do Saara",
-      answer_2: "Deserto de Atacama",
-      answer_3: "Deserto da Arábia",
-      answer_4: "Deserto de Gobi",
-      rightanswer: "1"
-    },
-    {
-      id: "49",
-      type: "GEO",
-      level: "1",
-      question: "Qual é o nome da capital do Brasil?",
-      answer_1: "Rio de Janeiro",
-      answer_2: "São Paulo",
-      answer_3: "Brasília",
-      answer_4: "Salvador",
-      rightanswer: "3"
-    },
-    {
-      id: "50",
-      type: "GEO",
-      level: "1",
-      question: "Qual é o nome do continente onde fica o Brasil?",
-      answer_1: "América do Norte",
-      answer_2: "América do Sul",
-      answer_3: "Europa",
-      answer_4: "África",
-      rightanswer: "2"
-    },
-  
-    // Physical Education (EDF) Questions
-    {
-      id: "51",
-      type: "EDF",
-      level: "1",
-      question: "Quantos jogadores tem um time de futebol?",
-      answer_1: "10",
-      answer_2: "11",
-      answer_3: "12",
-      answer_4: "13",
-      rightanswer: "2"
-    },
-    {
-      id: "52",
-      type: "EDF",
-      level: "1",
-      question: "Qual é o esporte mais popular do mundo?",
-      answer_1: "Basquete",
-      answer_2: "Futebol",
-      answer_3: "Tênis",
-      answer_4: "Vôlei",
-      rightanswer: "2"
-    },
-    {
-      id: "53",
-      type: "EDF",
-      level: "1",
-      question: "Qual é o nome do maior evento esportivo do mundo?",
-      answer_1: "Copa do Mundo",
-      answer_2: "Olimpíadas",
-      answer_3: "Super Bowl",
-      answer_4: "Wimbledon",
-      rightanswer: "2"
-    },
-    {
-      id: "54",
-      type: "EDF",
-      level: "1",
-      question: "Qual é o nome do esporte que usa uma raquete e uma bola amarela?",
-      answer_1: "Futebol",
-      answer_2: "Tênis",
-      answer_3: "Vôlei",
-      answer_4: "Basquete",
-      rightanswer: "2"
-    },
-    {
-      id: "55",
-      type: "EDF",
-      level: "1",
-      question: "Qual é o nome do esporte que usa uma cesta e uma bola laranja?",
-      answer_1: "Futebol",
-      answer_2: "Basquete",
-      answer_3: "Vôlei",
-      answer_4: "Handebol",
-      rightanswer: "2"
-    },
-    {
-      id: "56",
-      type: "EDF",
-      level: "1",
-      question: "Qual é o nome do esporte que usa uma rede e uma bola branca?",
-      answer_1: "Futebol",
-      answer_2: "Basquete",
-      answer_3: "Vôlei",
-      answer_4: "Handebol",
-      rightanswer: "3"
-    },
-    {
-      id: "57",
-      type: "EDF",
-      level: "1",
-      question: "Qual é o nome do esporte que usa um bastão e uma bola pequena?",
-      answer_1: "Beisebol",
-      answer_2: "Futebol",
-      answer_3: "Basquete",
-      answer_4: "Vôlei",
-      rightanswer: "1"
-    },
-    {
-      id: "58",
-      type: "EDF",
-      level: "1",
-      question: "Qual é o nome do esporte que usa uma raquete e uma peteca?",
-      answer_1: "Badminton",
-      answer_2: "Tênis",
-      answer_3: "Vôlei",
-      answer_4: "Handebol",
-      rightanswer: "1"
-    },
-    {
-      id: "59",
-      type: "EDF",
-      level: "1",
-      question: "Qual é o nome do esporte que usa uma bola oval?",
-      answer_1: "Futebol",
-      answer_2: "Rúgbi",
-      answer_3: "Basquete",
-      answer_4: "Vôlei",
-      rightanswer: "2"
-    },
-    {
-      id: "60",
-      type: "EDF",
-      level: "1",
-      question: "Qual é o nome do esporte que usa uma bola e um gol?",
-      answer_1: "Futebol",
-      answer_2: "Basquete",
-      answer_3: "Vôlei",
-      answer_4: "Handebol",
-      rightanswer: "1"
-    },
-  
-    // Art (ART) Questions
-    {
-      id: "61",
-      type: "ART",
-      level: "1",
-      question: "Quem pintou a Mona Lisa?",
-      answer_1: "Vincent van Gogh",
-      answer_2: "Pablo Picasso",
-      answer_3: "Leonardo da Vinci",
-      answer_4: "Claude Monet",
-      rightanswer: "3"
-    },
-    {
-      id: "62",
-      type: "ART",
-      level: "1",
-      question: "Qual é o nome do movimento artístico que surgiu no século XX?",
-      answer_1: "Renascimento",
-      answer_2: "Barroco",
-      answer_3: "Cubismo",
-      answer_4: "Romantismo",
-      rightanswer: "3"
-    },
-    {
-      id: "63",
-      type: "ART",
-      level: "1",
-      question: "Qual é o nome do artista que pintou 'A Noite Estrelada'?",
-      answer_1: "Vincent van Gogh",
-      answer_2: "Pablo Picasso",
-      answer_3: "Leonardo da Vinci",
-      answer_4: "Claude Monet",
-      rightanswer: "1"
-    },
-    {
-      id: "64",
-      type: "ART",
-      level: "1",
-      question: "Qual é o nome do movimento artístico que surgiu no século XIX?",
-      answer_1: "Renascimento",
-      answer_2: "Barroco",
-      answer_3: "Romantismo",
-      answer_4: "Cubismo",
-      rightanswer: "3"
-    },
-    {
-      id: "65",
-      type: "ART",
-      level: "1",
-      question: "Qual é o nome do artista que pintou 'O Grito'?",
-      answer_1: "Vincent van Gogh",
-      answer_2: "Edvard Munch",
-      answer_3: "Leonardo da Vinci",
-      answer_4: "Claude Monet",
-      rightanswer: "2"
-    },
-    {
-      id: "66",
-      type: "ART",
-      level: "1",
-      question: "Qual é o nome do movimento artístico que surgiu no século XVIII?",
-      answer_1: "Renascimento",
-      answer_2: "Barroco",
-      answer_3: "Romantismo",
-      answer_4: "Cubismo",
-      rightanswer: "2"
-    },
-    {
-      id: "67",
-      type: "ART",
-      level: "1",
-      question: "Qual é o nome do artista que pintou 'Guernica'?",
-      answer_1: "Vincent van Gogh",
-      answer_2: "Pablo Picasso",
-      answer_3: "Leonardo da Vinci",
-      answer_4: "Claude Monet",
-      rightanswer: "2"
-    },
-    {
-      id: "68",
-      type: "ART",
-      level: "1",
-      question: "Qual é o nome do movimento artístico que surgiu no século XVII?",
-      answer_1: "Renascimento",
-      answer_2: "Barroco",
-      answer_3: "Romantismo",
-      answer_4: "Cubismo",
-      rightanswer: "2"
-    },
-    {
-      id: "69",
-      type: "ART",
-      level: "1",
-      question: "Qual é o nome do artista que pintou 'A Última Ceia'?",
-      answer_1: "Vincent van Gogh",
-      answer_2: "Pablo Picasso",
-      answer_3: "Leonardo da Vinci",
-      answer_4: "Claude Monet",
-      rightanswer: "3"
-    },
-    {
-      id: "70",
-      type: "ART",
-      level: "1",
-      question: "Qual é o nome do movimento artístico que surgiu no século XVI?",
-      answer_1: "Renascimento",
-      answer_2: "Barroco",
-      answer_3: "Romantismo",
-      answer_4: "Cubismo",
-      rightanswer: "1"
-    },
-  
-    // Technology (TEC) Questions
-    {
-      id: "71",
-      type: "TEC",
-      level: "1",
-      question: "Qual é o nome do sistema operacional mais usado no mundo?",
-      answer_1: "Windows",
-      answer_2: "Linux",
-      answer_3: "macOS",
-      answer_4: "Android",
-      rightanswer: "1"
-    },
-    {
-      id: "72",
-      type: "TEC",
-      level: "1",
-      question: "Qual é o nome do criador da Microsoft?",
-      answer_1: "Steve Jobs",
-      answer_2: "Bill Gates",
-      answer_3: "Mark Zuckerberg",
-      answer_4: "Elon Musk",
-      rightanswer: "2"
-    },
-    {
-      id: "73",
-      type: "TEC",
-      level: "1",
-      question: "Qual é o nome do criador da Apple?",
-      answer_1: "Steve Jobs",
-      answer_2: "Bill Gates",
-      answer_3: "Mark Zuckerberg",
-      answer_4: "Elon Musk",
-      rightanswer: "1"
-    },
-    {
-      id: "74",
-      type: "TEC",
-      level: "1",
-      question: "Qual é o nome do criador do Facebook?",
-      answer_1: "Steve Jobs",
-      answer_2: "Bill Gates",
-      answer_3: "Mark Zuckerberg",
-      answer_4: "Elon Musk",
-      rightanswer: "3"
-    },
-    {
-      id: "75",
-      type: "TEC",
-      level: "1",
-      question: "Qual é o nome do criador da Tesla?",
-      answer_1: "Steve Jobs",
-      answer_2: "Bill Gates",
-      answer_3: "Mark Zuckerberg",
-      answer_4: "Elon Musk",
-      rightanswer: "4"
-    },
-    {
-      id: "76",
-      type: "TEC",
-      level: "1",
-      question: "Qual é o nome do sistema operacional mais usado em smartphones?",
-      answer_1: "Windows",
-      answer_2: "Linux",
-      answer_3: "macOS",
-      answer_4: "Android",
-      rightanswer: "4"
-    },
-    {
-      id: "77",
-      type: "TEC",
-      level: "1",
-      question: "Qual é o nome do sistema operacional mais usado em computadores Apple?",
-      answer_1: "Windows",
-      answer_2: "Linux",
-      answer_3: "macOS",
-      answer_4: "Android",
-      rightanswer: "3"
-    },
-    {
-      id: "78",
-      type: "TEC",
-      level: "1",
-      question: "Qual é o nome do sistema operacional mais usado em servidores?",
-      answer_1: "Windows",
-      answer_2: "Linux",
-      answer_3: "macOS",
-      answer_4: "Android",
-      rightanswer: "2"
-    },
-    {
-      id: "79",
-      type: "TEC",
-      level: "1",
-      question: "Qual é o nome do sistema operacional mais usado em tablets?",
-      answer_1: "Windows",
-      answer_2: "Linux",
-      answer_3: "macOS",
-      answer_4: "Android",
-      rightanswer: "4"
-    },
-    {
-      id: "80",
-      type: "TEC",
-      level: "1",
-      question: "Qual é o nome do sistema operacional mais usado em smartwatches?",
-      answer_1: "Windows",
-      answer_2: "Linux",
-      answer_3: "macOS",
-      answer_4: "Android",
-      rightanswer: "4"
-    }
-  ];
+  },
+  {
+    id: "1",
+    type: "MAT",
+    level: "1",
+    question: "Quanto é 5 + 7?",
+    answers: ["10", "12", "14", "16"],
+    rightanswer: "1"
+  },
+  {
+    id: "2",
+    type: "MAT",
+    level: "1",
+    question: "Quanto é 9 × 3?",
+    answers: ["18", "27", "36", "45"],
+    rightanswer: "1"
+  },
+  {
+    id: "3",
+    type: "MAT",
+    level: "1",
+    question: "Qual é a raiz quadrada de 16?",
+    answers: ["2", "4", "6", "8"],
+    rightanswer: "1"
+  },
+  {
+    id: "4",
+    type: "MAT",
+    level: "1",
+    question: "Quanto é 20 ÷ 4?",
+    answers: ["3", "4", "5", "6"],
+    rightanswer: "2"
+  },
+  {
+    id: "5",
+    type: "MAT",
+    level: "1",
+    question: "Qual é o dobro de 8?",
+    answers: ["10", "12", "16", "18"],
+    rightanswer: "2"
+  },
+  {
+    id: "6",
+    type: "MAT",
+    level: "1",
+    question: "Quanto é 15 - 9?",
+    answers: ["4", "5", "6", "7"],
+    rightanswer: "2"
+  },
+  {
+    id: "7",
+    type: "MAT",
+    level: "1",
+    question: "Qual é o valor de π (pi) arredondado para uma casa decimal?",
+    answers: ["3.1", "3.2", "3.3", "3.4"],
+    rightanswer: "0"
+  },
+  {
+    id: "8",
+    type: "MAT",
+    level: "1",
+    question: "Quanto é 3²?",
+    answers: ["6", "9", "12", "15"],
+    rightanswer: "1"
+  },
+  {
+    id: "9",
+    type: "MAT",
+    level: "1",
+    question: "Qual é o perímetro de um quadrado com lado 5 cm?",
+    answers: ["10 cm", "15 cm", "20 cm", "25 cm"],
+    rightanswer: "2"
+  },
+  {
+    id: "10",
+    type: "MAT",
+    level: "1",
+    question: "Quanto é 100 ÷ 10?",
+    answers: ["5", "10", "15", "20"],
+    rightanswer: "1"
+  },
+
+  // Chemistry (QUI) Questions
+  {
+    id: "11",
+    type: "QUI",
+    level: "1",
+    question: "Qual é o símbolo químico da água?",
+    answers: ["CO₂", "H₂O", "O₂", "NaCl"],
+    rightanswer: "1"
+  },
+  {
+    id: "12",
+    type: "QUI",
+    level: "1",
+    question: "Qual é o gás que respiramos?",
+    answers: ["Hidrogênio", "Oxigênio", "Nitrogênio", "Dióxido de carbono"],
+    rightanswer: "1"
+  },
+  {
+    id: "13",
+    type: "QUI",
+    level: "1",
+    question: "Qual é o estado físico da água em temperatura ambiente?",
+    answers: ["Sólido", "Líquido", "Gasoso", "Plasma"],
+    rightanswer: "1"
+  },
+  {
+    id: "14",
+    type: "QUI",
+    level: "1",
+    question: "Qual é o símbolo químico do carbono?",
+    answers: ["C", "Co", "Ca", "Cu"],
+    rightanswer: "0"
+  },
+  {
+    id: "15",
+    type: "QUI",
+    level: "1",
+    question: "Qual é o principal componente do ar?",
+    answers: ["Oxigênio", "Nitrogênio", "Dióxido de carbono", "Hidrogênio"],
+    rightanswer: "1"
+  },
+  {
+    id: "16",
+    type: "QUI",
+    level: "1",
+    question: "Qual é o símbolo químico do ouro?",
+    answers: ["Au", "Ag", "Fe", "Cu"],
+    rightanswer: "0"
+  },
+  {
+    id: "17",
+    type: "QUI",
+    level: "1",
+    question: "Qual é o pH da água pura?",
+    answers: ["5", "7", "9", "11"],
+    rightanswer: "1"
+  },
+  {
+    id: "18",
+    type: "QUI",
+    level: "1",
+    question: "Qual é o nome do processo de mudança de líquido para gás?",
+    answers: ["Fusão", "Solidificação", "Evaporação", "Condensação"],
+    rightanswer: "2"
+  },
+  {
+    id: "19",
+    type: "QUI",
+    level: "1",
+    question: "Qual é o símbolo químico do sódio?",
+    answers: ["So", "Na", "S", "K"],
+    rightanswer: "1"
+  },
+  {
+    id: "20",
+    type: "QUI",
+    level: "1",
+    question: "Qual é o gás liberado pelas plantas durante a fotossíntese?",
+    answers: ["Oxigênio", "Dióxido de carbono", "Nitrogênio", "Hidrogênio"],
+    rightanswer: "0"
+  },
+
+  // Biology (BIO) Questions
+  {
+    id: "21",
+    type: "BIO",
+    level: "1",
+    question: "Qual é o maior órgão do corpo humano?",
+    answers: ["Coração", "Pele", "Fígado", "Cérebro"],
+    rightanswer: "1"
+  },
+  {
+    id: "22",
+    type: "BIO",
+    level: "1",
+    question: "Quantos pulmões os seres humanos têm?",
+    answers: ["1", "2", "3", "4"],
+    rightanswer: "1"
+  },
+  {
+    id: "23",
+    type: "BIO",
+    level: "1",
+    question: "Qual é a função das raízes das plantas?",
+    answers: ["Fazer fotossíntese", "Absorver água e nutrientes", "Produzir flores", "Proteger a planta"],
+    rightanswer: "1"
+  },
+  {
+    id: "24",
+    type: "BIO",
+    level: "1",
+    question: "Qual é o animal conhecido como 'rei da selva'?",
+    answers: ["Elefante", "Leão", "Tigre", "Girafa"],
+    rightanswer: "1"
+  },
+  {
+    id: "25",
+    type: "BIO",
+    level: "1",
+    question: "Qual é o processo pelo qual as plantas produzem seu alimento?",
+    answers: ["Respiração", "Fotossíntese", "Digestão", "Transpiração"],
+    rightanswer: "1"
+  },
+  {
+    id: "26",
+    type: "BIO",
+    level: "1",
+    question: "Quantos ossos tem o corpo humano?",
+    answers: ["106", "206", "306", "406"],
+    rightanswer: "1"
+  },
+  {
+    id: "27",
+    type: "BIO",
+    level: "1",
+    question: "Qual é o nome do processo de divisão celular?",
+    answers: ["Fotossíntese", "Mitose", "Respiração", "Digestão"],
+    rightanswer: "1"
+  },
+  {
+    id: "28",
+    type: "BIO",
+    level: "1",
+    question: "Qual é o maior animal do mundo?",
+    answers: ["Elefante", "Baleia-azul", "Tubarão-branco", "Girafa"],
+    rightanswer: "1"
+  },
+  {
+    id: "29",
+    type: "BIO",
+    level: "1",
+    question: "Qual é o nome do processo de transformação de lagarta em borboleta?",
+    answers: ["Fotossíntese", "Metamorfose", "Respiração", "Digestão"],
+    rightanswer: "1"
+  },
+  {
+    id: "30",
+    type: "BIO",
+    level: "1",
+    question: "Qual é o nome do sistema que inclui o coração e os vasos sanguíneos?",
+    answers: ["Sistema nervoso", "Sistema circulatório", "Sistema digestivo", "Sistema respiratório"],
+    rightanswer: "1"
+  },
+
+  // History (HIS) Questions
+  {
+    id: "31",
+    type: "HIS",
+    level: "1",
+    question: "Quem descobriu o Brasil?",
+    answers: ["Cristóvão Colombo", "Pedro Álvares Cabral", "Fernão de Magalhães", "Vasco da Gama"],
+    rightanswer: "1"
+  },
+  {
+    id: "32",
+    type: "HIS",
+    level: "1",
+    question: "Em que ano o Brasil foi descoberto?",
+    answers: ["1492", "1500", "1600", "1700"],
+    rightanswer: "1"
+  },
+  {
+    id: "33",
+    type: "HIS",
+    level: "1",
+    question: "Qual foi a primeira capital do Brasil?",
+    answers: ["Rio de Janeiro", "Brasília", "Salvador", "São Paulo"],
+    rightanswer: "2"
+  },
+  {
+    id: "34",
+    type: "HIS",
+    level: "1",
+    question: "Quem foi o primeiro presidente do Brasil?",
+    answers: ["Getúlio Vargas", "Deodoro da Fonseca", "Juscelino Kubitschek", "Dom Pedro II"],
+    rightanswer: "1"
+  },
+  {
+    id: "35",
+    type: "HIS",
+    level: "1",
+    question: "Qual foi o período da escravidão no Brasil?",
+    answers: ["Século XV", "Século XVI ao XIX", "Século XX", "Século XXI"],
+    rightanswer: "1"
+  },
+  {
+    id: "36",
+    type: "HIS",
+    level: "1",
+    question: "Quem proclamou a independência do Brasil?",
+    answers: ["Dom Pedro I", "Dom Pedro II", "Getúlio Vargas", "Deodoro da Fonseca"],
+    rightanswer: "0"
+  },
+  {
+    id: "37",
+    type: "HIS",
+    level: "1",
+    question: "Qual foi o principal produto econômico do Brasil no período colonial?",
+    answers: ["Café", "Açúcar", "Ouro", "Petróleo"],
+    rightanswer: "1"
+  },
+  {
+    id: "38",
+    type: "HIS",
+    level: "1",
+    question: "Qual foi o nome do movimento que levou à Proclamação da República no Brasil?",
+    answers: ["Revolução Farroupilha", "Revolução de 1930", "Golpe da Maioridade", "Proclamação da República"],
+    rightanswer: "3"
+  },
+  {
+    id: "39",
+    type: "HIS",
+    level: "1",
+    question: "Qual foi o principal tratado que dividiu o Brasil entre Portugal e Espanha?",
+    answers: ["Tratado de Tordesilhas", "Tratado de Madri", "Tratado de Petrópolis", "Tratado de Utrecht"],
+    rightanswer: "0"
+  },
+  {
+    id: "40",
+    type: "HIS",
+    level: "1",
+    question: "Qual foi o nome do primeiro governador-geral do Brasil?",
+    answers: ["Tomé de Sousa", "Duarte da Costa", "Mem de Sá", "Marquês de Pombal"],
+    rightanswer: "0"
+  },
+
+  // Geography (GEO) Questions
+  {
+    id: "41",
+    type: "GEO",
+    level: "1",
+    question: "Qual é o maior país do mundo em área territorial?",
+    answers: ["China", "Estados Unidos", "Rússia", "Canadá"],
+    rightanswer: "2"
+  },
+  {
+    id: "42",
+    type: "GEO",
+    level: "1",
+    question: "Qual é o rio mais longo do mundo?",
+    answers: ["Rio Amazonas", "Rio Nilo", "Rio Yangtzé", "Rio Mississipi"],
+    rightanswer: "1"
+  },
+  {
+    id: "43",
+    type: "GEO",
+    level: "1",
+    question: "Qual é o nome da linha imaginária que divide a Terra em hemisférios norte e sul?",
+    answers: ["Trópico de Câncer", "Trópico de Capricórnio", "Linha do Equador", "Círculo Polar Ártico"],
+    rightanswer: "2"
+  },
+  {
+    id: "44",
+    type: "GEO",
+    level: "1",
+    question: "Qual é o maior oceano do mundo?",
+    answers: ["Oceano Atlântico", "Oceano Índico", "Oceano Pacífico", "Oceano Ártico"],
+    rightanswer: "2"
+  },
+  {
+    id: "45",
+    type: "GEO",
+    level: "1",
+    question: "Qual é o país mais populoso do mundo?",
+    answers: ["Índia", "Estados Unidos", "China", "Brasil"],
+    rightanswer: "2"
+  },
+  {
+    id: "46",
+    type: "GEO",
+    level: "1",
+    question: "Qual é o nome da capital da França?",
+    answers: ["Londres", "Berlim", "Paris", "Roma"],
+    rightanswer: "2"
+  },
+  {
+    id: "47",
+    type: "GEO",
+    level: "1",
+    question: "Qual é o nome da cordilheira mais extensa do mundo?",
+    answers: ["Himalaia", "Andes", "Alpes", "Montanhas Rochosas"],
+    rightanswer: "1"
+  },
+  {
+    id: "48",
+    type: "GEO",
+    level: "1",
+    question: "Qual é o nome do deserto mais quente do mundo?",
+    answers: ["Deserto do Saara", "Deserto de Atacama", "Deserto da Arábia", "Deserto de Gobi"],
+    rightanswer: "0"
+  },
+  {
+    id: "49",
+    type: "GEO",
+    level: "1",
+    question: "Qual é o nome da capital do Brasil?",
+    answers: ["Rio de Janeiro", "São Paulo", "Brasília", "Salvador"],
+    rightanswer: "2"
+  },
+  {
+    id: "50",
+    type: "GEO",
+    level: "1",
+    question: "Qual é o nome do continente onde fica o Brasil?",
+    answers: ["América do Norte", "América do Sul", "Europa", "África"],
+    rightanswer: "1"
+  },
+
+  // Physical Education (EDF) Questions
+  {
+    id: "51",
+    type: "EDF",
+    level: "1",
+    question: "Quantos jogadores tem um time de futebol?",
+    answers: ["10", "11", "12", "13"],
+    rightanswer: "1"
+  },
+  {
+    id: "52",
+    type: "EDF",
+    level: "1",
+    question: "Qual é o esporte mais popular do mundo?",
+    answers: ["Basquete", "Futebol", "Tênis", "Vôlei"],
+    rightanswer: "1"
+  },
+  {
+    id: "53",
+    type: "EDF",
+    level: "1",
+    question: "Qual é o nome do maior evento esportivo do mundo?",
+    answers: ["Copa do Mundo", "Olimpíadas", "Super Bowl", "Wimbledon"],
+    rightanswer: "1"
+  },
+  {
+    id: "54",
+    type: "EDF",
+    level: "1",
+    question: "Qual é o nome do esporte que usa uma raquete e uma bola amarela?",
+    answers: ["Futebol", "Tênis", "Vôlei", "Basquete"],
+    rightanswer: "1"
+  },
+  {
+    id: "55",
+    type: "EDF",
+    level: "1",
+    question: "Qual é o nome do esporte que usa uma cesta e uma bola laranja?",
+    answers: ["Futebol", "Basquete", "Vôlei", "Handebol"],
+    rightanswer: "1"
+  },
+  {
+    id: "56",
+    type: "EDF",
+    level: "1",
+    question: "Qual é o nome do esporte que usa uma rede e uma bola branca?",
+    answers: ["Futebol", "Basquete", "Vôlei", "Handebol"],
+    rightanswer: "2"
+  },
+  {
+    id: "57",
+    type: "EDF",
+    level: "1",
+    question: "Qual é o nome do esporte que usa um bastão e uma bola pequena?",
+    answers: ["Beisebol", "Futebol", "Basquete", "Vôlei"],
+    rightanswer: "0"
+  },
+  {
+    id: "58",
+    type: "EDF",
+    level: "1",
+    question: "Qual é o nome do esporte que usa uma raquete e uma peteca?",
+    answers: ["Badminton", "Tênis", "Vôlei", "Handebol"],
+    rightanswer: "0"
+  },
+  {
+    id: "59",
+    type: "EDF",
+    level: "1",
+    question: "Qual é o nome do esporte que usa uma bola oval?",
+    answers: ["Futebol", "Rúgbi", "Basquete", "Vôlei"],
+    rightanswer: "1"
+  },
+  {
+    id: "60",
+    type: "EDF",
+    level: "1",
+    question: "Qual é o nome do esporte que usa uma bola e um gol?",
+    answers: ["Futebol", "Basquete", "Vôlei", "Handebol"],
+    rightanswer: "0"
+  },
+
+  // Art (ART) Questions
+  {
+    id: "61",
+    type: "ART",
+    level: "1",
+    question: "Quem pintou a Mona Lisa?",
+    answers: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+    rightanswer: "2"
+  },
+  {
+    id: "62",
+    type: "ART",
+    level: "1",
+    question: "Qual é o nome do movimento artístico que surgiu no século XX?",
+    answers: ["Renascimento", "Barroco", "Cubismo", "Romantismo"],
+    rightanswer: "2"
+  },
+  {
+    id: "63",
+    type: "ART",
+    level: "1",
+    question: "Qual é o nome do artista que pintou 'A Noite Estrelada'?",
+    answers: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+    rightanswer: "0"
+  },
+  {
+    id: "64",
+    type: "ART",
+    level: "1",
+    question: "Qual é o nome do movimento artístico que surgiu no século XIX?",
+    answers: ["Renascimento", "Barroco", "Romantismo", "Cubismo"],
+    rightanswer: "2"
+  },
+  {
+    id: "65",
+    type: "ART",
+    level: "1",
+    question: "Qual é o nome do artista que pintou 'O Grito'?",
+    answers: ["Vincent van Gogh", "Edvard Munch", "Leonardo da Vinci", "Claude Monet"],
+    rightanswer: "1"
+  },
+  {
+    id: "66",
+    type: "ART",
+    level: "1",
+    question: "Qual é o nome do movimento artístico que surgiu no século XVIII?",
+    answers: ["Renascimento", "Barroco", "Romantismo", "Cubismo"],
+    rightanswer: "1"
+  },
+  {
+    id: "67",
+    type: "ART",
+    level: "1",
+    question: "Qual é o nome do artista que pintou 'Guernica'?",
+    answers: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+    rightanswer: "1"
+  },
+  {
+    id: "68",
+    type: "ART",
+    level: "1",
+    question: "Qual é o nome do movimento artístico que surgiu no século XVII?",
+    answers: ["Renascimento", "Barroco", "Romantismo", "Cubismo"],
+    rightanswer: "1"
+  },
+  {
+    id: "69",
+    type: "ART",
+    level: "1",
+    question: "Qual é o nome do artista que pintou 'A Última Ceia'?",
+    answers: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
+    rightanswer: "2"
+  },
+  {
+    id: "70",
+    type: "ART",
+    level: "1",
+    question: "Qual é o nome do movimento artístico que surgiu no século XVI?",
+    answers: ["Renascimento", "Barroco", "Romantismo", "Cubismo"],
+    rightanswer: "0"
+  },
+
+  // Technology (TEC) Questions
+  {
+    id: "71",
+    type: "TEC",
+    level: "1",
+    question: "Qual é o nome do sistema operacional mais usado no mundo?",
+    answers: ["Windows", "Linux", "macOS", "Android"],
+    rightanswer: "0"
+  },
+  {
+    id: "72",
+    type: "TEC",
+    level: "1",
+    question: "Qual é o nome do criador da Microsoft?",
+    answers: ["Steve Jobs", "Bill Gates", "Mark Zuckerberg", "Elon Musk"],
+    rightanswer: "1"
+  },
+  {
+    id: "73",
+    type: "TEC",
+    level: "1",
+    question: "Qual é o nome do criador da Apple?",
+    answers: ["Steve Jobs", "Bill Gates", "Mark Zuckerberg", "Elon Musk"],
+    rightanswer: "0"
+  },
+  {
+    id: "74",
+    type: "TEC",
+    level: "1",
+    question: "Qual é o nome do criador do Facebook?",
+    answers: ["Steve Jobs", "Bill Gates", "Mark Zuckerberg", "Elon Musk"],
+    rightanswer: "2"
+  },
+  {
+    id: "75",
+    type: "TEC",
+    level: "1",
+    question: "Qual é o nome do criador da Tesla?",
+    answers: ["Steve Jobs", "Bill Gates", "Mark Zuckerberg", "Elon Musk"],
+    rightanswer: "3"
+  },
+  {
+    id: "76",
+    type: "TEC",
+    level: "1",
+    question: "Qual é o nome do sistema operacional mais usado em smartphones?",
+    answers: ["Windows", "Linux", "macOS", "Android"],
+    rightanswer: "3"
+  },
+  {
+    id: "77",
+    type: "TEC",
+    level: "1",
+    question: "Qual é o nome do sistema operacional mais usado em computadores Apple?",
+    answers: ["Windows", "Linux", "macOS", "Android"],
+    rightanswer: "2"
+  },
+  {
+    id: "78",
+    type: "TEC",
+    level: "1",
+    question: "Qual é o nome do sistema operacional mais usado em servidores?",
+    answers: ["Windows", "Linux", "macOS", "Android"],
+    rightanswer: "1"
+  },
+  {
+    id: "79",
+    type: "TEC",
+    level: "1",
+    question: "Qual é o nome do sistema operacional mais usado em tablets?",
+    answers: ["Windows", "Linux", "macOS", "Android"],
+    rightanswer: "3"
+  },
+  {
+    id: "80",
+    type: "TEC",
+    level: "1",
+    question: "Qual é o nome do sistema operacional mais usado em smartwatches?",
+    answers: ["Windows", "Linux", "macOS", "Android"],
+    rightanswer: "3"
+  }
+];

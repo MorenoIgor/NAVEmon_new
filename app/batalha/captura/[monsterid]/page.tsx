@@ -28,14 +28,16 @@ export default function MonsterStats() {
         )
     }
 
-    const totalTime = 31000
+    const totalTime = 61000
     const [monsterid,setmonsterid] = useState(m)
     const [navemon,setnavemon] = useState(NAVEmon[m])
     const [started, setStarted] = useState(false)
     const [currentTime,setCurrentTime] = useState(0)
     const [timeLeft, setTimeLeft] = useState(totalTime)
-    const [formattedTime, setFormattedTime] = useState(30)
+    const [formattedTime, setFormattedTime] = useState(60)
     const [questionBlock, setQuestionBlock] = useState([])
+    const [finished, setFinished] = useState(false)
+    const [gotIt, setGotIt] = useState(false)
 
     const [loading,setLoading] = useState(true)
 
@@ -65,12 +67,15 @@ export default function MonsterStats() {
         }
       }
 
-    async function resolveCatch(gotIt) {
-        if (gotIt==true) { 
-            let cap = await catchNAVEmon(session.user.email,monsterid,true)
-            router.push("/navedex/"+monsterid)
+    async function resolveCatch(got) {
+        setGotIt(got)
+        if (got==true) { 
+            let cap = await catchNAVEmon(session.user.email,monsterid)
+            setFinished(true)
+            //router.push("/navedex/"+monsterid)
         } else {
-            router.replace("/capturar")
+            setFinished(true)
+            //router.replace("/capturar")
         }
     }
 
@@ -97,15 +102,28 @@ export default function MonsterStats() {
     if (!started) {
         return (
             <div>
+                <div className="content w-80p">
+                    <h2>{navemon.name}</h2>
+                    <h5>{navemon.types}</h5>
+                    <img src={`/artwork/${monsterid}.png`}></img>
+                </div>
                 <button className="m-4" onClick={()=> {startCatch()}}>Comecar</button>
             </div>
         )
     } else {
 
     return (
+        <section className="section">
         <div className="content u-center">
             <BattleRenderer questionlist={questionBlock} time={formattedTime} mode="CATCH" callback={resolveCatch} />
-        </div>
+            </div>
+            {
+                gotIt == true ? <div><br /><button className="m-4" onClick={()=> {router.push("/navedex/"+monsterid)}}>Página da Dex</button></div> : ""
+            }
+            {
+                finished == true ? <div><br /><button className="m-4" onClick={()=> {router.replace("/capturar")}}>Voltar</button></div> : ""
+            }
+        </section>
     )
 
     }
