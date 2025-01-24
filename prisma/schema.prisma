@@ -50,13 +50,13 @@ model battle {
   player1id      Int
   player1name    String
   player1monster Int     @default(0)
-  player1ready   Boolean @default(false)
+  player1abandon Boolean @default(false)
   player1answers String
   player1done    Boolean @default(false)
   player2id      Int
   player2name    String
   player2monster Int     @default(0)
-  player2ready   Boolean @default(false)
+  player2abandon Boolean @default(false)
   player2answers String
   player2done    Boolean @default(false)
   status         String  @default("WAITING")

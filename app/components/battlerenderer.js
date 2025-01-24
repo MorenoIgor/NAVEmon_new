@@ -27,7 +27,7 @@ export function BattleRenderer(props) {
             let gotIt = !answerArray.includes(false)
             props.callback(gotIt)
         } else {
-            props.callback(answerArray)
+            props.callback(answerArray,undefined)
         }
     }
 

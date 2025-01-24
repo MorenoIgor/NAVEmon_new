@@ -58,6 +58,8 @@ export default function MonsterStats() {
                             data.status = "FINISHED"
                         }
 
+                        console.log(data)
+
                         if (data.player1id==id) {
                             setPlayerId(1)
                             navemon = NAVEmon[data.player2monster]
@@ -78,11 +80,32 @@ export default function MonsterStats() {
             }
         ,[done])
 
-    function startBattle() {
+    async function startBattle() {
+
         startTime = Date.now()
         setCurrentTime(Date.now())
         setStarted(true)
         setQuestionBlock(QuestionBlock(navemon.types,5))
+
+        let data = {}
+
+        if (playerId==1) {
+            data = {
+                player1answers: "0,0,0,0,0",
+                player1done: true,
+                player1abandon: true
+            }
+        } else {
+            data = {
+                player2answers: "0,0,0,0,0",
+                player2done: true,
+                player2abandon: true
+            }
+        }
+
+        let ab = await writeBattleData(parseInt(battleid),data)
+
+
     }
 
     function formatTime(time) {
@@ -130,7 +153,7 @@ export default function MonsterStats() {
       }
 
 
-      async function finishBattle(result) {
+      async function finishBattle(result,_pid) {
         let answers = ""
         for (let r of result) {
             if (r==false) {
@@ -142,9 +165,14 @@ export default function MonsterStats() {
         }
         answers = answers.slice(0,answers.length-1)
         
+        let pid = playerId
+        if (_pid!=undefined) {
+            pid = _pid
+        }
+
         let data
 
-        if (playerId==1) {
+        if (pid==1) {
             data = {
                 player1answers: answers,
                 player1done: true

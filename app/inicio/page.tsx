@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react"
 import { signOut } from "next-auth/react"
 import { useState,useEffect } from "react"
 import { getUserData } from "../databasefunctions"
-import { TopBar } from "../components/topbar"
+import { Loading } from "../components/loading"
 
 export default function Inicio() {
 
@@ -13,6 +13,7 @@ export default function Inicio() {
     const {data: session,status} = useSession()
 
     const [playerInfo, setPlayerInfo] = useState({})
+    const [loading, setLoading] = useState(true)
 
     if (status!="authenticated") {
         return (
@@ -25,10 +26,17 @@ export default function Inicio() {
                 async function getPlayerInfo() {
                     let data = await getUserData(session?.user.email)
                     setPlayerInfo(data)
+                    setLoading(false)
                 }
                 getPlayerInfo()
             }
         ,[])
+
+    if (loading) {
+        return (
+            <Loading />
+        )
+    }
 
     return (
         <section className="section">
