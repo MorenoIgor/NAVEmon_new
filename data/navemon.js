@@ -13,7 +13,7 @@ export const NAVEmon = [
     },
     {
       id: "2",
-      name: "WTF",
+      name: "SLUGMAT",
       types: "TEC2,MAT1", // Glitch (technology) and abstract concept (math).
       description: "Lorem ipsum dolor sit amet consectetur adipiscing elit."
     },
@@ -25,7 +25,7 @@ export const NAVEmon = [
     },
     {
       id: "4",
-      name: "PSDB",
+      name: "TUCANUDO",
       types: "HIS2,GEO1", // Political party (history) and geography (regional influence).
       description: "Lorem ipsum dolor sit amet consectetur adipiscing elit."
     },

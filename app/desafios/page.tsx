@@ -83,6 +83,7 @@ export default function Desafios() {
         if (parseInt(playerInfo.challenges)>0) {
             if (target!=session?.user?.email) {
                 if (await userAlreadyExists(target)) {
+                    setLoading(true)
                     let btl = await startBattle(session?.user.email,target)
                     router.replace("/batalha/duelo/"+btl.id)
                     //Não deixar iniciar uma batalha se já tiver outra em curso com a mesma pessoa!

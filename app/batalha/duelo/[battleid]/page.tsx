@@ -85,7 +85,20 @@ export default function MonsterStats() {
         startTime = Date.now()
         setCurrentTime(Date.now())
         setStarted(true)
-        setQuestionBlock(QuestionBlock(navemon.types,5))
+        let qb = QuestionBlock(navemon.types,5)
+        
+
+        for (let q of qb) {
+            let oa = q.answers[q.rightanswer]
+            fy(q.answers)
+            for (let qq=0;qq<q.answers.length;qq++) {
+                if (q.answers[qq]==oa) {
+                    q.rightanswer = qq.toString()
+                }
+            }
+        }
+
+        setQuestionBlock(qb)
 
         let data = {}
 
@@ -106,6 +119,11 @@ export default function MonsterStats() {
         let ab = await writeBattleData(parseInt(battleid),data)
 
 
+    }
+
+    //https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+    function fy(a,b,c,d){//array,placeholder,placeholder,placeholder
+        c=a.length;while(c)b=Math.random()*c--|0,d=a[c],a[c]=a[b],a[b]=d
     }
 
     function formatTime(time) {
@@ -156,11 +174,12 @@ export default function MonsterStats() {
       async function finishBattle(result,_pid) {
         let answers = ""
         for (let r of result) {
-            if (r==false) {
-                answers+="0"
-            } else {
-                answers+="1"
-            }
+            // if (r==0) {
+            //     answers+="0"
+            // } else {
+            //     answers+="1"
+            // }
+            answers += r.toString()
             answers+=","
         }
         answers = answers.slice(0,answers.length-1)
