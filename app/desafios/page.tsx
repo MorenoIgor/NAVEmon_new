@@ -82,13 +82,14 @@ export default function Desafios() {
         let target = document.querySelector("#challenge").value
         if (parseInt(playerInfo.challenges)>0) {
             if (target!=session?.user?.email) {
+                setLoading(true)
                 if (await userAlreadyExists(target)) {
-                    setLoading(true)
                     let btl = await startBattle(session?.user.email,target)
                     router.replace("/batalha/duelo/"+btl.id)
                     //Não deixar iniciar uma batalha se já tiver outra em curso com a mesma pessoa!
                 } else {
                     setChallengeError("Este email não existe!")
+                    setLoading(false)
                 }
             } else {
                 setChallengeError("Você não pode se desafiar!")
