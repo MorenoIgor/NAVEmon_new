@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import {QuestionBlock} from "../../../questionfunctions"
 import {BattleRenderer} from "../../../components/battlerenderer"
 import {Loading} from "../../../components/loading"
+import { TypeTag } from "@/app/components/typetag";
 
 let startTime : number
 let int1 : any
@@ -104,7 +105,7 @@ export default function MonsterStats() {
             <div>
                 <div className="content w-80p">
                     <h2>{navemon.name}</h2>
-                    <h5>{navemon.types}</h5>
+                    <TypeTag typestring={navemon.types} />
                     <img src={`/artwork/${monsterid}.png`}></img>
                 </div>
                 <button className="m-4" onClick={()=> {startCatch()}}>Comecar</button>

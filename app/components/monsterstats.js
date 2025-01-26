@@ -1,4 +1,5 @@
 import { useRouter } from "next/navigation"
+import { TypeTag } from "./typetag"
 
 export function CaughtMonsterStats(props) {
 
@@ -35,7 +36,7 @@ export function CaughtMonsterStats(props) {
         </div>
         <div className="card__title-container u-text-center">
             <h6>{props.monsterdata.name + star}</h6>
-            <p><b>{props.monsterdata.types}</b></p>
+            <TypeTag typestring={props.monsterdata.types} />
         </div>
         </div>
     )
@@ -76,9 +77,11 @@ export function WildMonsterStats(props) {
         <img className={clsnm} src={`/artwork/${props.monsterdata.id}.png`}></img>
             </div>
         </div>
-        <div className="card__title-container u-text-center">
-            <h6>{props.monsterdata.name}</h6>
-            <p><b>{props.monsterdata.types}</b></p>
+        <div className="content">
+            <div className="card__title-container u-text-center">
+                <h6>{props.monsterdata.name}</h6>
+                <TypeTag typestring={props.monsterdata.types} />
+            </div>
         </div>
         </div>
     )

@@ -6,6 +6,7 @@ import { NAVEmon } from "@/data/navemon";
 import { getUserCurrentMonster, setCurrentNAVEmon } from "@/app/databasefunctions";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { TypeTag } from "../../components/typetag"
 
 export default function MonsterStats() {
 
@@ -40,6 +41,7 @@ export default function MonsterStats() {
     return (
         <div className="content">
         <h1>{NAVEmon[monsterid].name}{current == true? "⭐" : ""}</h1>
+        <TypeTag typestring={NAVEmon[monsterid].types} />
         <img className="u-center" src={`/artwork/${monsterid}.png`}></img><br />
         <button className="m-4"  onClick={()=>changeMain()}>Tornar Principal</button><br />
         <button className="m-4"  onClick={()=>{router.replace("/lista/")}}>Voltar para Lista</button>
