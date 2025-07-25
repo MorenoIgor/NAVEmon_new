@@ -1,43 +1,36 @@
-.listNAVEmonBadge {
+/* Import CSS Variables */
+@import './variables.css';
 
-  width: 100pt;
-  height: auto;
-  border: 2px solid black;
-
-}
-
-.NAVEmonBadgeImage {
-
-    width: 90%;
-
-}
-
-.semiTransparent {
-  opacity: 0.5;
-}
-
+/* Container for monster list - keeping this as it might be used elsewhere */
 #monsterListContainer {
-
   width: 90%;
   display: flex;
   flex-wrap: wrap;
-
+  gap: var(--spacing-md);
 }
 
 .battleResultContainer {
   display: flex;
+  gap: var(--spacing-md);
 }
 
 .battleResultPanel {
-width: 400pt;
-text-align: center;
+  width: 400pt;
+  text-align: center;
+  padding: var(--spacing-lg);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-medium);
 }
 
 .battleOption {
-margin: 8pt;
+  margin: var(--spacing-sm);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast);
+  cursor: pointer;
 }
 
 .battleOption:hover {
-background-color: lightskyblue;
-cursor: pointer;
+  background-color: var(--hover-bg);
 }

@@ -1,0 +1,315 @@
+/* Lista Page Styles */
+
+.container {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Header Section */
+.headerSection {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--bg-primary);
+  border: 3px solid var(--border-color);
+}
+
+.pageTitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.pageSubtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* Stats Section */
+.statsSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--bg-primary);
+  border: 3px solid var(--border-color);
+}
+
+.statCard {
+  background: var(--bg-secondary);
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  min-width: 120px;
+  text-align: center;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0.25rem 0 0 0;
+}
+
+/* Grid Layout for Monster Cards */
+.monsterGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 3rem 1rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+}
+
+.emptyStateIcon {
+  font-size: 4rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.emptyStateTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.emptyStateMessage {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.emptyStateButton {
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.emptyStateButton:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Ações da página */
+.pageActions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+}
+
+/* Navigation Button */
+.backButton {
+  background: transparent;
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.backButton svg {
+  width: 1em;
+  height: 1em;
+}
+
+.backButton:hover {
+  background: var(--hover-bg);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.backButton:active {
+  transform: translateY(0);
+}
+
+/* Access Restricted Message */
+.accessRestricted {
+  text-align: center;
+  padding: 2rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  margin: 2rem auto;
+  max-width: 400px;
+}
+
+.accessRestrictedTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-danger);
+  margin: 0;
+}
+
+/* Filter Section */
+.filterSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+}
+
+.filterButton {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filterButton:hover {
+  background: var(--hover-bg);
+}
+
+.filterButtonActive {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .container {
+    padding: 0.75rem;
+  }
+  
+  .monsterGrid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  .headerSection {
+    padding: 1rem;
+  }
+  
+  .pageTitle {
+    font-size: 1.5rem;
+  }
+  
+  .statsSection {
+    padding: 0.75rem;
+  }
+  
+  .statCard {
+    min-width: 100px;
+    padding: 0.75rem;
+  }
+  
+  .statValue {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .monsterGrid {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .statsSection {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .statCard {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 2rem;
+  }
+  
+  .monsterGrid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .headerSection {
+    padding: 2rem;
+  }
+  
+  .pageTitle {
+    font-size: 2.5rem;
+  }
+}
+
+/* Dark mode adjustments */
+:global([data-theme="dark"]) .headerSection {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+:global([data-theme="dark"]) .statsSection {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+:global([data-theme="dark"]) .statCard {
+  background: var(--bg-primary);
+  border-color: var(--border-color);
+}
+
+:global([data-theme="dark"]) .accessRestricted {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+:global([data-theme="dark"]) .emptyState {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+:global([data-theme="dark"]) .filterSection {
+  background: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+:global([data-theme="dark"]) .filterButton {
+  border-color: var(--border-color);
+}

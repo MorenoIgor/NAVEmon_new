@@ -1,0 +1,134 @@
+/* TypeTag Component Styles */
+
+.tagContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.typeItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.typeItem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: currentColor;
+  transition: width var(--transition-fast);
+}
+
+/* .typeItem:hover {
+  background-color: var(--bg-secondary);
+  box-shadow: var(--shadow-medium);
+  transform: translateY(-1px);
+}
+
+.typeItem:hover::before {
+  width: 6px;
+} */
+
+.typeName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.difficultyContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.difficultyIcon {
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+}
+
+.difficultyIconFilled {
+  color: #f59e0b; /* amber-500 */
+}
+
+.difficultyIconEmpty {
+  color: #d1d5db; /* gray-300 */
+}
+
+/* Responsive adjustments */
+@media (min-width: 640px) {
+  .typeName {
+    font-size: 1.25rem;
+  }
+  
+  .difficultyIcon {
+    font-size: 1rem;
+  }
+}
+
+/* Dark mode adjustments */
+:global([data-theme="dark"]) .typeItem {
+  background-color: var(--bg-primary);
+  border-color: var(--border-color);
+}
+
+/* :global([data-theme="dark"]) .typeItem:hover {
+  background-color: var(--bg-secondary);
+} */
+
+:global([data-theme="dark"]) .difficultyIconEmpty {
+  color: #4b5563; /* gray-600 for dark mode */
+}
+
+/* Subject-specific colors */
+.typeBio {
+  color: #10b981; /* emerald-500 - Verde para Biologia */
+}
+
+.typeHis {
+  color: #8b5cf6; /* violet-500 - Roxo para História */
+}
+
+.typeArt {
+  color: #f59e0b; /* amber-500 - Amarelo para Artes */
+}
+
+.typeEdf {
+  color: #06b6d4; /* cyan-500 - Ciano para Educação Física */
+}
+
+.typeMat {
+  color: #3b82f6; /* blue-500 - Azul para Matemática */
+}
+
+.typeQui {
+  color: #ef4444; /* red-500 - Vermelho para Química */
+}
+
+.typeGeo {
+  color: #84cc16; /* lime-500 - Verde lima para Geografia */
+}
+
+.typeIng {
+  color: #f97316; /* orange-500 - Laranja para Inglês */
+}
+
+.typeTec {
+  color: #6366f1; /* indigo-500 - Índigo para Técnico */
+}
+
+.typeOther {
+  color: #6b7280; /* gray-500 - Cinza para Outras */
+}

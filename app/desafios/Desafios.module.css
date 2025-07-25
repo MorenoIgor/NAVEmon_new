@@ -1,0 +1,424 @@
+/* Desafios Module CSS - Sistema de desafios entre treinadores */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+    background: var(--bg-primary);
+    min-height: 100vh;
+}
+
+.pageTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    min-height: 60px;
+}
+
+.pageTitle svg {
+    width: 1.2em;
+    height: 1.2em;
+    flex-shrink: 0;
+}
+
+/* Seções de desafios */
+.challengeSection {
+    margin-bottom: var(--spacing-xl);
+    background: var(--bg-primary);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-medium);
+    border: 3px solid var(--border-color);
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.sectionTitle svg {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.statsTitle svg {
+    width: 1.1em;
+    height: 1.1em;
+}
+
+.formTitle svg {
+    width: 1.1em;
+    height: 1.1em;
+}
+
+.sectionTitle.received {
+    border-bottom-color: var(--text-primary);
+}
+
+.sectionTitle.made {
+    border-bottom-color: var(--text-primary);
+}
+
+/* Lista de desafios */
+.challengeList {
+    display: grid;
+    gap: var(--spacing-sm);
+}
+
+.challengeItem {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-md);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.challengeItem:hover {
+    background: var(--hover-bg);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.challengeText {
+    color: var(--text-primary);
+    font-weight: 500;
+    margin: 0;
+}
+
+.challengeNav {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.emptyState {
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Estatísticas do jogador */
+.playerStats {
+    background: var(--bg-primary);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-medium);
+    border: 3px solid var(--border-color);
+}
+
+.statsTitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.statItem {
+    text-align: center;
+    padding: var(--spacing-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.statLabel {
+    display: block;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.statValue {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.statValue.wins {
+    color: var(--color-success);
+}
+
+.statValue.losses {
+    color: var(--color-danger);
+}
+
+.statValue.draws {
+    color: var(--color-warning);
+}
+
+/* Formulário de desafio */
+.challengeForm {
+    background: var(--bg-primary);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-medium);
+    border: 3px solid var(--border-color);
+}
+
+.formTitle {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.challengesRemaining {
+    color: var(--text-primary);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 3px solid var(--border-color);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.inputGroup {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.challengeInput {
+    flex: 1;
+    padding: var(--spacing-md);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: all var(--transition-normal);
+}
+
+.challengeInput:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.challengeInput::placeholder {
+    color: var(--text-secondary);
+}
+
+/* Botões */
+
+.primaryButton {
+    background: linear-gradient(135deg, var(--color-danger), var(--color-danger-hover));
+    color: white;
+    border: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    position: relative;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    white-space: nowrap;
+    margin-bottom: 0;
+}
+
+.primaryButton svg {
+    width: 1em;
+    height: 1em;
+}
+
+.primaryButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.primaryButton:hover::before {
+  left: 100%;
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.primaryButton:active {
+  transform: translateY(0);
+}
+
+.primaryButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-heavy);
+    filter: brightness(1.1);
+}
+
+.primaryButton:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  /* Desabilita hover visual */
+  filter: none;
+  box-shadow: none;
+  transform: none;
+}
+
+.secondaryButton {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.secondaryButton svg {
+    width: 1em;
+    height: 1em;
+}
+
+.secondaryButton:hover {
+    background: var(--hover-bg);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+/* Mensagens de erro */
+.errorMessage {
+    background: rgba(239, 68, 68, 0.1);
+    color: var(--color-danger);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-danger);
+    margin-top: var(--spacing-md);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+/* Ações da página */
+.pageActions {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+/* Animações */
+.slideInUp {
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-md);
+    }
+    
+    .pageTitle {
+        font-size: 2rem;
+    }
+    
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .inputGroup {
+        flex-direction: column;
+    }
+    
+    .pageActions {
+        flex-direction: column;
+    }
+    
+    .challengeItem {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+}
+
+@media (max-width: 480px) {
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+    
+    .pageTitle {
+        font-size: 1.5rem;
+    }
+}
+
+/* Dark mode específico */
+[data-theme="dark"] .challengeItem:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .challengeInput {
+    background: var(--background-secondary);
+}
+
+[data-theme="dark"] .statItem {
+    background: rgba(255, 255, 255, 0.05);
+}

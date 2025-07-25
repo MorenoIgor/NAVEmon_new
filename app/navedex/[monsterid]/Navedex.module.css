@@ -1,0 +1,503 @@
+/* Navedex Page Styles */
+
+.container {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.accessDenied {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--color-danger);
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 2px solid var(--color-danger);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Monster Card */
+.monsterCard {
+  background: var(--bg-secondary);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-heavy);
+  border: 1px solid var(--border-color);
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.monsterCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-success), var(--color-warning));
+}
+
+/* Header */
+.monsterHeader {
+  margin-bottom: 2rem;
+}
+
+.monsterTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.currentBadge {
+  font-size: 1.5rem;
+  animation: pulse 1s linear infinite;
+}
+
+.monsterNumber {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+/* Type Container */
+.typeContainer {
+  margin-bottom: 2rem;
+}
+
+/* Monster Image */
+.imageContainer {
+  margin-bottom: 2.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.monsterImage {
+  object-fit: contain;
+  border-radius: 1.5rem;
+  background: var(--bg-primary);
+  padding: 1.5rem;
+  box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border: 3px solid transparent;
+  cursor: pointer;
+}
+
+.monsterImage:hover {
+  transform: scale(1.05);
+}
+
+
+.monsterImage.current {
+  border-color: #ffd700;
+  box-shadow: 
+    inset 0 4px 12px rgba(0, 0, 0, 0.1),
+    0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Description */
+.description {
+  background: var(--bg-primary);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-color);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.descriptionTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.75rem 0 !important;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.descriptionText {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Action Buttons */
+.actionButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, var(--color-success), #059669);
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.primaryButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.primaryButton:hover::before {
+  left: 100%;
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.primaryButton:disabled {
+  background: var(--text-secondary);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.primaryButton:disabled::before {
+  display: none;
+}
+
+.secondaryButton {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.secondaryButton:hover {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Status Indicators */
+.statusIndicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--color-success);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: var(--shadow-medium);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.statusIndicator.current {
+  background: linear-gradient(135deg, #ffd700, #ffa500);
+  color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .monsterCard {
+    padding: 2rem 1.5rem;
+  }
+  
+  .monsterTitle {
+    font-size: 2rem;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .actionButtons {
+    gap: 0.75rem;
+  }
+  
+  .primaryButton,
+  .secondaryButton {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .description {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .monsterCard {
+    padding: 1.5rem 1rem;
+  }
+  
+  .monsterTitle {
+    font-size: 1.75rem;
+  }
+  
+  .monsterImage {
+    padding: 1rem;
+  }
+  
+  .description {
+    padding: 1rem;
+  }
+  
+  .descriptionText {
+    font-size: 0.95rem;
+  }
+  
+  .primaryButton,
+  .secondaryButton {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .monsterCard {
+  background: var(--bg-secondary);
+  border-color: #404040;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .monsterImage {
+  background: var(--bg-primary);
+  box-shadow: inset 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .monsterImage.current {
+  box-shadow: 
+    inset 0 4px 12px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+[data-theme="dark"] .description {
+  background: var(--bg-primary);
+  border-color: #404040;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .secondaryButton {
+  background: var(--bg-primary);
+  border-color: #404040;
+}
+
+[data-theme="dark"] .secondaryButton:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+[data-theme="dark"] .accessDenied {
+  background: #2a1f1f;
+  border-color: var(--color-danger);
+  color: #f87171;
+}
+
+/* Animations */
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slideInUp {
+  animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  }
+}
+
+.glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modalContent {
+  position: relative;
+  /* background: var(--bg-secondary); */
+  /* border-radius: 1rem; */
+  padding: 2rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* box-shadow: var(--shadow-heavy); */
+  /* border: 1px solid var(--border-color); */
+}
+
+.closeButton {
+  background-color: transparent;
+  position: absolute;
+  top: -2rem;
+  right: 1rem;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 4rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 1001;
+}
+
+.closeButton:hover {
+  background: transparent;
+  transform: scale(1.1);
+}
+
+.modalImage {
+  max-width: 100%;
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.modalInfo {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+}
+
+.modalNumber {
+  font-size: 1rem;
+  color: #e0e0e0;
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsivo para o modal */
+@media (max-width: 768px) {
+  .modalContent {
+    padding: 1.5rem;
+  }
+  
+  .modalImage {
+    max-height: 60vh;
+  }
+  
+  .modalTitle {
+    font-size: 1.3rem;
+  }
+}

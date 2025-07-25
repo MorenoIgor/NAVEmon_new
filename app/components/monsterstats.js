@@ -1,13 +1,15 @@
 import { useRouter } from "next/navigation"
 import { TypeTag } from "./typetag"
+import styles from './MonsterStats.module.css'
 
 export function CaughtMonsterStats(props) {
 
     let router = useRouter()
 
-    let clsnm = "NAVEmonBadgeImage"
+    // Construir classes para a imagem
+    const imageClasses = [styles.monsterImage]
     if (!props.caught) {
-        clsnm += " semiTransparent"
+        imageClasses.push(styles.monsterImageSemiTransparent)
     }
 
     let star = ""
@@ -16,28 +18,32 @@ export function CaughtMonsterStats(props) {
     }
 
     return (
-        // <div className="listNAVEmonBadge" onClick={
-        //     ()=> {
-        //         router.push("/navedex/"+props.monsterdata.id)   
-        //     }
-        // }>
-        //     <h3>{props.monsterdata.name + star}</h3>
-        //     <img className={clsnm} src={`/artwork/${props.monsterdata.id}.png`}></img>
-        // </div>
-        <div className="u-round-md u-shadow-md" onClick={
-                ()=> {
-                    router.push("/navedex/"+props.monsterdata.id)   
-                }
-            } >
-        <div className="card__container">
-        <div className="content u-text-center pt-3">
-            <img className={clsnm} src={`/artwork/${props.monsterdata.id}.png`}></img>
-        </div>
-        </div>
-        <div className="card__title-container u-text-center">
-            <h6>{props.monsterdata.name + star}</h6>
-            <TypeTag typestring={props.monsterdata.types} />
-        </div>
+        <div 
+            className={`${styles.monsterCard} ${props.current ? styles.rareCard : ''}`}
+            onClick={() => {
+                router.push("/navedex/" + props.monsterdata.id)   
+            }}
+        >
+            {props.current && (
+                <div className={styles.currentBadge}>
+                    Ativo ⭐
+                </div>
+            )}
+            <div className={styles.cardContainer}>
+                <div className={styles.imageContainer}>
+                    <img 
+                        className={imageClasses.join(' ')} 
+                        src={`/artwork/${props.monsterdata.id}.png`}
+                        alt={props.monsterdata.name}
+                    />
+                </div>
+            </div>
+            <div className={styles.titleContainer}>
+                <h6 className={styles.monsterName}>
+                    {props.monsterdata.name + star}
+                </h6>
+                <TypeTag typestring={props.monsterdata.types} />
+            </div>
         </div>
     )
 
@@ -46,8 +52,6 @@ export function CaughtMonsterStats(props) {
 export function WildMonsterStats(props) {
 
     let router = useRouter()
-
-    let clsnm = "NAVEmonBadgeImage"
 
     function goCatch() {
         console.log(props.cancatch)
@@ -59,30 +63,27 @@ export function WildMonsterStats(props) {
     }
 
     return (
-        // <div className="listNAVEmonBadge" onClick={
-        //     ()=> {
-        //         goCatch()
-        //     }
-        // }>
-        //     <h3>{props.monsterdata.name + star}</h3>
-        //     <img className={clsnm} src={`/artwork/${props.monsterdata.id}.png`}></img>
-        // </div>
-        <div className="u-round-md u-shadow-md" onClick={
-            ()=> {
+        <div 
+            className={`${styles.monsterCard} ${styles.wildMonsterCard}`}
+            onClick={() => {
                 goCatch() 
-            }
-        } >
-        <div className="card__container">
-            <div className="content u-text-center pt-3">
-        <img className={clsnm} src={`/artwork/${props.monsterdata.id}.png`}></img>
+            }}
+        >
+            <div className={styles.cardContainer}>
+                <div className={`${styles.imageContainer} ${styles.wildImageContainer}`}>
+                    <img 
+                        className={styles.monsterImage} 
+                        src={`/artwork/${props.monsterdata.id}.png`}
+                        alt={props.monsterdata.name}
+                    />
+                </div>
             </div>
-        </div>
-        <div className="content">
-            <div className="card__title-container u-text-center">
-                <h6>{props.monsterdata.name}</h6>
+            <div className={styles.titleContainer}>
+                <h6 className={styles.monsterName}>
+                    {props.monsterdata.name}
+                </h6>
                 <TypeTag typestring={props.monsterdata.types} />
             </div>
-        </div>
         </div>
     )
 
