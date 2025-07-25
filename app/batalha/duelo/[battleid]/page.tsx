@@ -13,7 +13,7 @@ import { TypeTag } from "@/app/components/typetag";
 import { FiPlay, FiArrowLeft, FiAward, FiFlag, FiUsers } from "react-icons/fi"
 import styles from "./Duelo.module.css"
 
-let startTime
+let startTime : number
 let int1
 let navemon
  
@@ -147,6 +147,7 @@ export default function MonsterStats() {
         if (time==0) {
             setStarted(false)
         }
+        console.log(time)
       }
 
       function getPoints(pointString: string) {
