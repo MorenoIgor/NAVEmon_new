@@ -73,7 +73,7 @@ export default function MonsterStats() {
         if (time==0) {
             setStarted(false)
         }
-        console.log(time)
+   
       }
 
     async function resolveCatch(got) {

@@ -32,8 +32,8 @@ export default function MonsterStats() {
         )
     }
 
-    const totalTime = 6100000
-    // const totalTime = 61000
+    //const totalTime = 6100000
+    const totalTime = 61000
     const [started, setStarted] = useState(false)
     const [currentTime,setCurrentTime] = useState(0)
     const [timeLeft, setTimeLeft] = useState(totalTime)
@@ -147,7 +147,6 @@ export default function MonsterStats() {
         if (time==0) {
             setStarted(false)
         }
-        console.log(time)
       }
 
       function getPoints(pointString: string) {
