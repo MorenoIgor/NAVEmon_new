@@ -33,7 +33,6 @@
 .headerBrand {
   display: flex;
   align-items: center;
-  margin-right: 2rem;
 }
 
 .navItem {
@@ -85,7 +84,7 @@
 }
 
 .logoutButton {
-  color: #ef4444;
+  color: var(--text-primary, #333);
 }
 
 .logoutButton:hover {
@@ -117,6 +116,7 @@
   padding: 8px;
   border-radius: 4px;
   transition: background-color 0.2s ease;
+  margin-bottom: 0;
 }
 
 .mobileMenuToggle:hover {

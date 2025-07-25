@@ -1,0 +1,347 @@
+/* Duelo Module CSS - Sistema de batalhas entre treinadores */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+    background: var(--bg-primary);
+    min-height: 100vh;
+}
+
+/* Pré-batalha - Tela de preparação */
+.preBattleSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    background: var(--bg-secondary);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-medium);
+    border: 3px solid var(--border-color);
+    text-align: center;
+}
+
+.opponentName {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.monsterImage {
+    border-radius: var(--radius-lg);
+    /* border: 3px solid var(--color-primary); */
+    box-shadow: var(--shadow-medium);
+    transition: transform var(--transition-normal);
+}
+
+.monsterImage:hover {
+    transform: scale(1.05);
+}
+
+.monsterName {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: var(--spacing-md) 0;
+}
+
+.startButton {
+    background: linear-gradient(135deg, var(--color-warning), #d88c09);
+    color: white;
+    border: none;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+.startButton:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-heavy);
+    filter: brightness(1.1);
+}
+
+/* Durante a batalha */
+.battleSection {
+    text-align: center;
+}
+
+.battleContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.finishButton {
+    background: var(--color-success);
+    color: white;
+    border: none;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    margin-top: var(--spacing-lg);
+}
+
+.finishButton:hover {
+    background: #0d9488;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Pós-batalha - Resultados */
+.resultsSection {
+    background: var(--bg-primary);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-medium);
+    border: 3px solid var(--border-color);
+}
+
+.resultsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.playerCard {
+    background: var(--bg-secondary);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: all var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.playerName {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.playerMonsterImage {
+    width: 120px;
+    height: 120px;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--border-color);
+    margin-bottom: var(--spacing-md);
+    transition: transform var(--transition-normal);
+}
+
+.playerMonsterName {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Scores e Progress Bars */
+.scoreSection {
+    margin-top: var(--spacing-md);
+}
+
+.scoreValue {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.progressBar {
+    width: 100%;
+    height: 12px;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+    margin-bottom: var(--spacing-sm);
+}
+
+.progressFill {
+    height: 100%;
+    transition: width 0.5s ease;
+    border-radius: var(--radius-sm);
+}
+
+.progressInfo {
+    background: var(--color-primary);
+}
+
+.progressSuccess {
+    background: var(--color-success);
+}
+
+.progressWarning {
+    background: var(--color-warning);
+}
+
+.progressDanger {
+    background: var(--color-danger);
+}
+
+/* Indicadores de vitória */
+.winnerIcon {
+    font-size: 2rem;
+    margin-top: var(--spacing-sm);
+}
+
+.waitingText {
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: var(--spacing-md);
+}
+
+/* Ações da página */
+.pageActions {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+.backButton {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.backButton svg {
+    width: 1em;
+    height: 1em;
+}
+
+.backButton:hover {
+    background: var(--hover-bg);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+/* Estados de acesso */
+.accessRestricted {
+    text-align: center;
+    padding: var(--spacing-xl);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    margin: var(--spacing-xl) auto;
+    max-width: 400px;
+}
+
+.accessTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-danger);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Animações */
+.slideInUp {
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fadeIn {
+    animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-md);
+    }
+    
+    .resultsGrid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .preBattleSection {
+        padding: var(--spacing-lg);
+    }
+    
+    .pageActions {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .opponentName {
+        font-size: 1.2rem;
+    }
+    
+    .monsterName {
+        font-size: 1.1rem;
+    }
+    
+    .startButton {
+        font-size: 1rem;
+        padding: var(--spacing-sm) var(--spacing-lg);
+    }
+    
+}
+
+/* Dark mode específico */
+[data-theme="dark"] .playerCard:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .progressBar {
+    background: rgba(255, 255, 255, 0.1);
+}

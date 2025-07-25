@@ -2,7 +2,7 @@
 
 .container {
   padding: 1rem;
-  max-width: 48rem; /* Aumentando um pouco o max-width */
+  max-width: 48rem;
   margin: 0 auto;
   width: 100%;
 }
@@ -20,9 +20,8 @@
   align-items: center;
   gap: 1rem;
   padding: 1.5rem;
-  background-color: var(--bg-secondary);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  border: 3px solid var(--border-color);
 }
 
 .userAvatar {
@@ -68,10 +67,8 @@
 
 /* Current Monster Card */
 .currentMonsterCard {
-  background: var(--bg-secondary);
-  border-radius: 1rem;
   box-shadow: var(--shadow-medium);
-  border: 1px solid var(--border-color);
+  border: 3px solid var(--border-color);
   margin-bottom: 1.5rem;
   overflow: hidden;
   position: relative;
@@ -121,7 +118,7 @@
   background: var(--bg-primary);
   border-radius: 1rem;
   padding: 1rem;
-  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -167,9 +164,8 @@
 
 /* Estatísticas */
 .statsContainer {
-  background-color: var(--bg-secondary);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-color);
+  background-color: var(--bg-primary);
+  border: 3px solid var(--border-color);
   overflow: hidden;
 }
 
@@ -322,7 +318,6 @@
 
 :global([data-theme="dark"]) .currentMonsterCard {
   background-color: var(--bg-secondary);
-  border-color: #404040;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 

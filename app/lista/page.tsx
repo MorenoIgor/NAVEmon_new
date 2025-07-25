@@ -8,6 +8,7 @@ import { NAVEmon } from "@/data/navemon"
 import { useRouter } from "next/navigation"
 import {CaughtMonsterStats} from "../components/monsterstats"
 import { Loading } from "../components/loading"
+import { FiArrowLeft } from "react-icons/fi"
 import styles from './Lista.module.css'
 
 export default function Lista() {
@@ -110,12 +111,15 @@ export default function Lista() {
                 )}
 
                 {/* Back Button */}
-                <button 
-                    className={styles.backButton} 
-                    onClick={() => {router.replace("/inicio/")}}
-                >
-                    Voltar para o Início
-                </button>
+                <div className={styles.pageActions}>
+                    <button 
+                        className={styles.backButton} 
+                        onClick={() => {router.replace("/inicio/")}}
+                    >
+                        <FiArrowLeft />
+                        Voltar para o Início
+                    </button>
+                </div>
             </div>
         </div>
     )

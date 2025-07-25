@@ -8,6 +8,7 @@ import { NAVEmon } from "@/data/navemon"
 import {WildMonsterStats} from "../components/monsterstats"
 import {Loading} from "../components/loading"
 import { useRouter } from "next/navigation"
+import { FiArrowLeft } from "react-icons/fi"
 import styles from './Capturar.module.css'
 
 export default function Capturar() {
@@ -106,12 +107,15 @@ export default function Capturar() {
                 )}
 
                 {/* Back Button */}
-                <button 
-                    className={styles.backButton}  
-                    onClick={() => {router.replace("/inicio/")}}
-                >
-                    Voltar para Início
-                </button>
+                <div className={styles.pageActions}>
+                    <button 
+                        className={styles.backButton}  
+                        onClick={() => {router.replace("/inicio/")}}
+                    >
+                        <FiArrowLeft />
+                        Voltar para Início
+                    </button>
+                </div>
             </div>
         </div>
     )

@@ -10,6 +10,8 @@ import {QuestionBlock} from "../../../questionfunctions"
 import {BattleRenderer} from "../../../components/battlerenderer"
 import {Loading} from "../../../components/loading"
 import { TypeTag } from "@/app/components/typetag";
+import { FiPlay, FiArrowLeft, FiAward, FiFlag, FiUsers } from "react-icons/fi"
+import styles from "./Duelo.module.css"
 
 let startTime
 let int1
@@ -18,22 +20,26 @@ let navemon
 export default function MonsterStats() {
 
     const {data: session,status} = useSession()
-    const battleid = useParams().battleid
+    const params = useParams()
+    const battleid = Array.isArray(params.battleid) ? params.battleid[0] : params.battleid
     const router = useRouter()
 
     if (status!="authenticated") { //
         return (
-            <h1>Acesso restrito</h1>
+            <div className={styles.accessRestricted}>
+                <h1 className={styles.accessTitle}>Acesso restrito</h1>
+            </div>
         )
     }
 
-    const totalTime = 61000
+    const totalTime = 6100000
+    // const totalTime = 61000
     const [started, setStarted] = useState(false)
     const [currentTime,setCurrentTime] = useState(0)
     const [timeLeft, setTimeLeft] = useState(totalTime)
     const [formattedTime, setFormattedTime] = useState(60)
     const [questionBlock, setQuestionBlock] = useState([])
-    const [battleData, setBattleData] = useState({})
+    const [battleData, setBattleData] = useState<any>({})
     const [playerId, setPlayerId] = useState(0)
     const [winner, setWinner] = useState(-1)
     const [done, setDone] = useState(false)
@@ -91,7 +97,7 @@ export default function MonsterStats() {
 
         for (let q of qb) {
             let oa = q.answers[q.rightanswer]
-            fy(q.answers)
+            fy(q.answers, undefined, undefined, undefined)
             for (let qq=0;qq<q.answers.length;qq++) {
                 if (q.answers[qq]==oa) {
                     q.rightanswer = qq.toString()
@@ -143,10 +149,10 @@ export default function MonsterStats() {
         }
       }
 
-      function getPoints(pointString) {
+      function getPoints(pointString: string) {
 
-        if (pointString=="") {
-            return "?"
+        if (pointString=="" || pointString==undefined) {
+            return 0
         }
       
       let arr = pointString.split(",")
@@ -242,73 +248,134 @@ export default function MonsterStats() {
 
     if (!started && !overForMe) {
         return (
-            <div>
-                <h4>{playerId == 1 ? `${battleData.player2name}` : `${battleData.player1name}` }</h4>
-                <img className="NAVEmonBadgeImage" src={playerId == 1 ? `/artwork/${battleData.player2monster}.png` : `/artwork/${battleData.player1monster}.png`}></img><br />
-                <h4>{playerId ==1 ? NAVEmon[battleData.player2monster].name : NAVEmon[battleData.player2monster].name }</h4>
-                <TypeTag typestring={playerId == 1 ? NAVEmon[battleData.player2monster].types : NAVEmon[battleData.player1monster].types } />
-                <button className="m-4" onClick={()=> {startBattle()}}>Comecar</button>
+            <div className={`${styles.container} ${styles.slideInUp}`}>
+                <div className={styles.preBattleSection}>
+                    <h4 className={styles.opponentName}>
+                        {playerId == 1 ? `Oponente ${battleData.player2name}` : `Oponente ${battleData.player1name}` }
+                    </h4>
+                    <img 
+                        className={styles.monsterImage} 
+                        src={playerId == 1 ? `/artwork/${battleData.player2monster}.png` : `/artwork/${battleData.player1monster}.png`}
+                        alt="Oponente NAVEmon"
+                    />
+                    <h4 className={styles.monsterName}>
+                        {playerId ==1 ? NAVEmon[battleData.player2monster].name : NAVEmon[battleData.player1monster].name }
+                    </h4>
+                    <TypeTag typestring={playerId == 1 ? NAVEmon[battleData.player2monster].types : NAVEmon[battleData.player1monster].types } />
+                    <button 
+                        className={styles.startButton} 
+                        onClick={() => {startBattle()}}
+                    >
+                        <FiPlay />
+                        Começar Batalha
+                    </button>
+                </div>
             </div>
         )
     } else if (!overForMe) {
 
     return (
-        <section>
-        <section className="content u-center">
-            <BattleRenderer questionlist={questionBlock} time={formattedTime} mode="BATTLE" callback={finishBattle} />
-        </section>
-            {finishedPlaying ? <button className="m-4" onClick={()=> {setDone(true)}}>Finalizar</button> : ""}
-        </section>
+        <div className={`${styles.container} ${styles.slideInUp}`}>
+            <div className={styles.battleSection}>
+                <div className={styles.battleContent}>
+                    <BattleRenderer questionlist={questionBlock} time={formattedTime} mode="BATTLE" callback={finishBattle} />
+                </div>
+                {finishedPlaying && (
+                    <button 
+                        className={styles.finishButton} 
+                        onClick={() => {setDone(true)}}
+                    >
+                        Finalizar Batalha
+                    </button>
+                )}
+            </div>
+        </div>
     )
 
     } else if (overForMe) {
         return (
-            <section>
-            <section className="u-center">
-            <section className="grid grid-cols-2 u-gap-2 w-80p">
-            <div className="content">
-            <h4>{`${battleData.player1name}`}</h4>
-            <img className="NAVEmonBadgeImage" src={`/artwork/${battleData.player1monster}.png`}></img><br />
-            <h4>{NAVEmon[battleData.player1monster].name}</h4>
-            <TypeTag typestring={NAVEmon[battleData.player1monster].types} />
-            {/* <h3>Pontos: {getPoints(battleData.player1answers)}</h3>
-            {
-                winner == 1 ? <h1>🏆</h1> : winner == 2 ? <h1>🏳️</h1> : winner == -1? <h1></h1> :<h1>🤝</h1>
-            } */}
-            { 
-            battleData.player2done == true ?
-            <div>
-            <h4>{500-getPoints(battleData.player2answers)} / 500</h4>
-            <progress className={`w-70p progress ${getBarColor(getPoints(battleData.player2answers))}`} value={500-getPoints(battleData.player2answers)} max="500"></progress>
-            {winner == 1 ? <h1>🏆</h1> : winner == 2 ? <h1>🏳️</h1> : winner == -1? <h1></h1> :<h1>🤝</h1>}
+            <div className={`${styles.container} ${styles.slideInUp}`}>
+                <div className={styles.resultsSection}>
+                    <div className={styles.resultsGrid}>
+                        {/* Player 1 Card */}
+                        <div className={`${styles.playerCard} ${styles.fadeIn}`}>
+                            <h4 className={styles.playerName}>{`${battleData.player1name}`}</h4>
+                            <img 
+                                className={styles.playerMonsterImage} 
+                                src={`/artwork/${battleData.player1monster}.png`}
+                                alt={NAVEmon[battleData.player1monster].name}
+                            />
+                            <h4 className={styles.playerMonsterName}>
+                                {NAVEmon[battleData.player1monster].name}
+                            </h4>
+                            <TypeTag typestring={NAVEmon[battleData.player1monster].types} />
+                            
+                            {battleData.player2done == true ? (
+                                <div className={styles.scoreSection}>
+                                    <div className={styles.scoreValue}>
+                                        {500-getPoints(battleData.player2answers)} / 500
+                                    </div>
+                                    <div className={styles.progressBar}>
+                                        <div 
+                                            className={`${styles.progressFill} ${styles[getBarColor(getPoints(battleData.player2answers)).replace('progress--', 'progress')]}`}
+                                            style={{width: `${((500-getPoints(battleData.player2answers))/500)*100}%`}}
+                                        ></div>
+                                    </div>
+                                    <div className={styles.winnerIcon}>
+                                        {winner == 1 ? "🏆" : winner == 2 ? "🏳️" : winner == -1? "" :"🤝"}
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className={styles.waitingText}>Aguardando</div>
+                            )}
+                        </div>
+
+                        {/* Player 2 Card */}
+                        <div className={`${styles.playerCard} ${styles.fadeIn}`}>
+                            <h4 className={styles.playerName}>{`${battleData.player2name}`}</h4>
+                            <img 
+                                className={styles.playerMonsterImage} 
+                                src={`/artwork/${battleData.player2monster}.png`}
+                                alt={NAVEmon[battleData.player2monster].name}
+                            />
+                            <h4 className={styles.playerMonsterName}>
+                                {NAVEmon[battleData.player2monster].name}
+                            </h4>
+                            <TypeTag typestring={NAVEmon[battleData.player2monster].types} />
+                            
+                            {battleData.player1done == true ? (
+                                <div className={styles.scoreSection}>
+                                    <div className={styles.scoreValue}>
+                                        {500-getPoints(battleData.player1answers)} / 500
+                                    </div>
+                                    <div className={styles.progressBar}>
+                                        <div 
+                                            className={`${styles.progressFill} ${styles[getBarColor(getPoints(battleData.player1answers)).replace('progress--', 'progress')]}`}
+                                            style={{width: `${((500-getPoints(battleData.player1answers))/500)*100}%`}}
+                                        ></div>
+                                    </div>
+                                    <div className={styles.winnerIcon}>
+                                        {winner == 2 ? "🏆" : winner == 1 ? "🏳️" : winner == -1 ? "" : "🤝"}
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className={styles.waitingText}>Aguardando</div>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Page Actions */}
+                    <div className={styles.pageActions}>
+                        <button 
+                            className={styles.backButton}
+                            onClick={() => {router.replace("/inicio/")}}
+                        >
+                            <FiArrowLeft />
+                            Voltar para o Início
+                        </button>
+                    </div>
+                </div>
             </div>
-                : <h2>Aguardando</h2>
-            }
-            </div>
-          
-            <div className="content">
-            <h4>{`${battleData.player2name}`}</h4>
-            <img className="NAVEmonBadgeImage" src={`/artwork/${battleData.player2monster}.png`}></img><br />
-            <h4>{NAVEmon[battleData.player2monster].name}</h4>
-            <TypeTag typestring={NAVEmon[battleData.player2monster].types} />
-            {/* <h3>Pontos: {getPoints(battleData.player2answers)}</h3>
-            {
-                winner == 2 ? <h1>🏆</h1> : winner == 1 ? <h1>🏳️</h1> : winner == -1 ? <h1></h1> : <h1>🤝</h1>
-            } */}
-            { 
-            battleData.player1done == true ?
-            <div>
-            <h4>{500-getPoints(battleData.player1answers)} / 500</h4>
-            <progress className={`w-70p progress ${getBarColor(getPoints(battleData.player1answers))}`} value={500-getPoints(battleData.player1answers)} max="500"></progress>
-                {winner == 2 ? <h1>🏆</h1> : winner == 1 ? <h1>🏳️</h1> : winner == -1 ? <h1></h1> : <h1>🤝</h1>}
-            </div>
-                : <h2>Aguardando</h2>
-            }
-            </div>
-            </section>
-            </section>
-            <button className="m-4"  onClick={()=>{router.replace("/inicio/")}}>Voltar para o Início</button>
-            </section>
         )
     }
 

@@ -42,7 +42,7 @@ export function TopBar() {
                 <div className={styles.headerBrand}>
                     <div className={`${styles.navItem} ${styles.navItemNoHover}`}>
                         <h6 onClick={() => { router.replace("/") }} className={styles.title}>
-                            <img src="/logo/logo.png" style={{ height: "48pt" }} alt="NAVEmon Logo" />
+                            <img src="/logo/logo.png" style={{ height: "70px", width: "auto", maxWidth: "fit-content" }} alt="NAVEmon Logo" />
                         </h6>
                     </div>
                 </div>
