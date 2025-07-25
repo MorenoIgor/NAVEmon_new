@@ -174,10 +174,15 @@
     height: 100%;
     transition: width 0.5s ease;
     border-radius: var(--radius-sm);
+    background: var(--color-primary);
 }
 
 .progressInfo {
     background: var(--color-primary);
+}
+
+.progressSucces {
+    background: var(--color-success);
 }
 
 .progressSuccess {

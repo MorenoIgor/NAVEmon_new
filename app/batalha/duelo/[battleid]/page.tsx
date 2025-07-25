@@ -223,7 +223,7 @@ export default function MonsterStats() {
         if (pnts>325) {
             return "progress--info"
         } else if (pnts>250 && pnts<=325) {
-            return "progress--succes"
+            return "progress--success"
         } else if (pnts>125 && pnts<=250) {
             return "progress--warning"
         } else {

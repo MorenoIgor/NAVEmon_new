@@ -72,6 +72,18 @@
   margin-bottom: 1.5rem;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.currentMonsterCard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-large);
+  border-color: #4ecdc4;
+}
+
+.currentMonsterCard:active {
+  transform: translateY(0);
 }
 
 .currentMonsterCard::before {
@@ -319,6 +331,11 @@
 :global([data-theme="dark"]) .currentMonsterCard {
   background-color: var(--bg-secondary);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+:global([data-theme="dark"]) .currentMonsterCard:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  border-color: #4ecdc4;
 }
 
 :global([data-theme="dark"]) .currentMonsterHeader {

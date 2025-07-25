@@ -14,7 +14,8 @@ import {
     FiLogOut,
     FiHome,
     FiMenu,
-    FiX
+    FiX,
+    FiZap
 } from 'react-icons/fi'
 
 export function TopBar() {
@@ -73,7 +74,7 @@ export function TopBar() {
                                         onClick={() => router.push("/desafios")} 
                                         className={styles.navButton}
                                     >
-                                        <FiTarget className={styles.icon} />
+                                        <FiZap className={styles.icon} />
                                         Desafios
                                     </button>
                                 </div>
@@ -168,7 +169,7 @@ export function TopBar() {
                                     onClick={() => handleNavigation("/desafios")} 
                                     className={styles.mobileMenuButton}
                                 >
-                                    <FiTarget className={styles.iconLarge} />
+                                    <FiZap className={styles.iconLarge} />
                                     Desafios
                                 </button>
                                 <button 

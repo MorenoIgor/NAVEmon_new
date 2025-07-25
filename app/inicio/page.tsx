@@ -21,7 +21,9 @@ import {
     FiStar,
     FiZap,
     FiShield,
-    FiHeart
+    FiHeart,
+    FiList,
+    FiCrosshair
 } from 'react-icons/fi'
 
 export default function Inicio() {
@@ -69,6 +71,13 @@ export default function Inicio() {
     // Pegar NAVEmon atual
     const currentNavemon = playerInfo.currentmonster ? NAVEmon[parseInt(playerInfo.currentmonster)] : null
 
+    // Função para navegar para a dex do NAVEmon
+    const handleNavemonClick = () => {
+        if (playerInfo.currentmonster) {
+            router.push(`/navedex/${playerInfo.currentmonster}`)
+        }
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.contentWrapper}>
@@ -98,9 +107,13 @@ export default function Inicio() {
 
                 {/* NAVEmon Atual */}
                 {currentNavemon && (
-                    <div className={styles.currentMonsterCard}>
+                    <div 
+                        className={styles.currentMonsterCard}
+                        onClick={handleNavemonClick}
+                    >
                         <div className={styles.currentMonsterHeader}>
-                            <FiHeart className={styles.currentMonsterIcon} />
+                            <FiStar className={`${styles.currentMonsterIcon} ${styles.statIconGold}`} />
+                            {/* <FiHeart className={styles.currentMonsterIcon} /> */}
                             <h2 className={styles.currentMonsterTitle}>
                                 NAVEmon Principal
                             </h2>
@@ -143,7 +156,7 @@ export default function Inicio() {
                         {/* Coleção */}
                         <div className={styles.statItem}>
                             <div className={styles.statItemLeft}>
-                                <FiStar className={`${styles.statIcon} ${styles.statIconGold}`} />
+                                <FiList className={`${styles.statIcon}`} />
                                 <span className={styles.statLabel}>Coleção NAVEMon</span>
                             </div>
                             <span className={styles.statValue}>
@@ -154,8 +167,8 @@ export default function Inicio() {
                         {/* Batalhas */}
                         <div className={styles.statItem}>
                             <div className={styles.statItemLeft}>
-                                <FiShield className={`${styles.statIcon} ${styles.statIconPurple}`} />
-                                <span className={styles.statLabel}>Batalhas</span>
+                                <FiZap className={`${styles.statIcon}`} />
+                                <span className={styles.statLabel}>Desafios Realizados</span>
                             </div>
                             <span className={styles.statValue}>
                                 {totalBattles}
@@ -165,7 +178,7 @@ export default function Inicio() {
                         {/* Vitórias */}
                         <div className={styles.statItem}>
                             <div className={styles.statItemLeft}>
-                                <FiTrendingUp className={`${styles.statIcon} ${styles.statIconGreen}`} />
+                                <FiTrendingUp className={`${styles.statIcon}`} />
                                 <span className={styles.statLabel}>Vitórias</span>
                             </div>
                             <span className={`${styles.statValue} ${styles.statValueGreen}`}>
@@ -176,7 +189,7 @@ export default function Inicio() {
                         {/* Derrotas */}
                         <div className={styles.statItem}>
                             <div className={styles.statItemLeft}>
-                                <FiTrendingDown className={`${styles.statIcon} ${styles.statIconRed}`} />
+                                <FiTrendingDown className={`${styles.statIcon}`} />
                                 <span className={styles.statLabel}>Derrotas</span>
                             </div>
                             <span className={`${styles.statValue} ${styles.statValueRed}`}>
@@ -187,7 +200,7 @@ export default function Inicio() {
                         {/* Empates */}
                         <div className={styles.statItem}>
                             <div className={styles.statItemLeft}>
-                                <FiMinus className={`${styles.statIcon} ${styles.statIconGray}`} />
+                                <FiMinus className={`${styles.statIcon}`} />
                                 <span className={styles.statLabel}>Empates</span>
                             </div>
                             <span className={`${styles.statValue} ${styles.statValueGray}`}>
@@ -198,7 +211,7 @@ export default function Inicio() {
                         {/* Taxa de Vitória */}
                         <div className={styles.statItem}>
                             <div className={styles.statItemLeft}>
-                                <FiTarget className={`${styles.statIcon} ${styles.statIconBlue}`} />
+                                <FiTarget className={`${styles.statIcon}`} />
                                 <span className={styles.statLabel}>Taxa de Vitória</span>
                             </div>
                             <span className={styles.statValue}>
@@ -209,7 +222,7 @@ export default function Inicio() {
                         {/* Capturas */}
                         <div className={styles.statItem}>
                             <div className={styles.statItemLeft}>
-                                <FiZap className={`${styles.statIcon} ${styles.statIconOrange}`} />
+                                <FiCrosshair className={`${styles.statIcon}`} />
                                 <span className={styles.statLabel}>Capturas Restantes</span>
                             </div>
                             <span className={styles.statValue}>
@@ -220,7 +233,7 @@ export default function Inicio() {
                         {/* Desafios Completados */}
                         <div className={styles.statItem}>
                             <div className={styles.statItemLeft}>
-                                <FiAward className={`${styles.statIcon} ${styles.statIconAmber}`} />
+                                <FiAward className={`${styles.statIcon}`} />
                                 <span className={styles.statLabel}>Capturas Realizadas</span>
                             </div>
                             <span className={styles.statValue}>
