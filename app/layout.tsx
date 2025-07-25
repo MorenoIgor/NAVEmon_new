@@ -20,14 +20,14 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
       <html lang="en">
           <body>
-          <TopBar />
-        <section className="section u-text-center">
-            <div className="content u-center">
               <Providers session={session}>
-                  {children}
+                  <TopBar />
+                  <section className="section u-text-center">
+                      <div className="content u-center">
+                          {children}
+                      </div>
+                  </section>
               </Providers>
-            </div>
-        </section>
           </body>
       </html>
   )

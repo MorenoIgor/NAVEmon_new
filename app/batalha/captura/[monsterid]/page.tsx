@@ -10,25 +10,32 @@ import {QuestionBlock} from "../../../questionfunctions"
 import {BattleRenderer} from "../../../components/battlerenderer"
 import {Loading} from "../../../components/loading"
 import { TypeTag } from "@/app/components/typetag";
+import { FiPlay, FiBook, FiArrowLeft } from "react-icons/fi";
+import styles from "./Captura.module.css";
 
 let startTime : number
 let int1 : any
- 
+
 export default function MonsterStats() {
 
     const {data: session,status} = useSession()
-    //const monsterid : number = useParams().monsterid
-    let m = useParams().monsterid
-    m = parseInt(m)
-    //const navemon = NAVEmon[parseInt(monsterid)]
+    const params = useParams()
+    const monsterIdParam = Array.isArray(params.monsterid) ? params.monsterid[0] : params.monsterid
+    const m = parseInt(monsterIdParam || "1")
     const router = useRouter()
 
     if (status!="authenticated") {
         return (
-            <h1>Acesso restrito</h1>
+            <div className={styles.container}>
+                <div className={styles.accessDenied}>
+                    <h1>Acesso restrito</h1>
+                    <p>Você precisa estar logado para acessar esta página</p>
+                </div>
+            </div>
         )
     }
 
+    // const totalTime = 610000
     const totalTime = 61000
     const [monsterid,setmonsterid] = useState(m)
     const [navemon,setnavemon] = useState(NAVEmon[m])
@@ -96,34 +103,74 @@ export default function MonsterStats() {
 
     if (loading) {
         return (
-            <Loading />
+            <div className={styles.container}>
+                <Loading />
+            </div>
         )
     }
 
     if (!started) {
         return (
-            <div>
-                <div className="content w-80p">
-                    <h2>{navemon.name}</h2>
-                    <TypeTag typestring={navemon.types} />
-                    <img src={`/artwork/${monsterid}.png`}></img>
+            <div className={styles.container}>
+                <div className={styles.previewContainer}>
+                    <div className={`${styles.monsterCard} ${styles.slideIn}`}>
+                        <h2 className={styles.monsterName}>{navemon.name}</h2>
+                        <div className={styles.typeContainer}>
+                            <TypeTag typestring={navemon.types} />
+                        </div>
+                        <img 
+                            src={`/artwork/${monsterid}.png`}
+                            alt={navemon.name}
+                            className={`${styles.monsterImage} ${styles.pulse}`}
+                        />
+                    </div>
+                    <button 
+                        className={styles.startButton} 
+                        onClick={() => startCatch()}
+                    >
+                        Começar Captura
+                        <FiPlay style={{ marginLeft: '0.5rem' }} />
+                    </button>
                 </div>
-                <button className="m-4" onClick={()=> {startCatch()}}>Comecar</button>
             </div>
         )
     } else {
 
     return (
-        <section className="section">
-        <div className="content u-center">
-            <BattleRenderer questionlist={questionBlock} time={formattedTime} mode="CATCH" callback={resolveCatch} />
+        <section className={styles.battleSection}>
+            <div className={styles.battleContent}>
+                <BattleRenderer questionlist={questionBlock} time={formattedTime} mode="CATCH" callback={resolveCatch} />
+                
+                {finished && (
+                    <div className={styles.resultActions}>
+                        {gotIt ? (
+                            <>
+                                <div className={`${styles.resultMessage} ${styles.success}`}>
+                                    🎉 Parabéns! Você capturou {navemon.name}!
+                                </div>
+                                <button 
+                                    className={`${styles.actionButton} ${styles.success}`}
+                                    onClick={() => router.push("/navedex/" + monsterid)}
+                                >
+                                    <FiBook style={{ marginRight: '0.5rem' }} />
+                                    Ver na Navedex
+                                </button>
+                            </>
+                        ) : (
+                            <div className={`${styles.resultMessage} ${styles.failure}`}>
+                                😔 Que pena! {navemon.name} escapou desta vez.
+                            </div>
+                        )}
+                        <button 
+                            className={styles.actionButton}
+                            onClick={() => router.replace("/capturar")}
+                        >
+                            <FiArrowLeft style={{ marginRight: '0.5rem' }} />
+                            Voltar para Capturar
+                        </button>
+                    </div>
+                )}
             </div>
-            {
-                gotIt == true ? <div><br /><button className="m-4" onClick={()=> {router.push("/navedex/"+monsterid)}}>Página da Dex</button></div> : ""
-            }
-            {
-                finished == true ? <div><br /><button className="m-4" onClick={()=> {router.replace("/capturar")}}>Voltar</button></div> : ""
-            }
         </section>
     )
 

@@ -1,6 +1,8 @@
 "use client"
 
 import { useState } from "react"
+import { FiCheck, FiX } from "react-icons/fi"
+import styles from "./BattleRenderer.module.css"
 
 export function BattleRenderer(props) {
 
@@ -44,69 +46,93 @@ export function BattleRenderer(props) {
 
     if (!finished) {
 
-    return (
-        <div className="card">
-        <div className="content w-90p">
-        <h1>{props.time}</h1>
-        <h2 className="title">{questionList[currentQuestion].question}</h2>
-        <div className="battleOption u-border-2 u-round-xl u-shadow-md"><h5 onClick={()=>nextQuestion(1)}>{questionList[currentQuestion].answers[0]}</h5></div>
-        <div className="battleOption u-border-2 u-round-xl u-shadow-md"><h5 onClick={()=>nextQuestion(2)}>{questionList[currentQuestion].answers[1]}</h5></div>
-        <div className="battleOption u-border-2 u-round-xl u-shadow-md"><h5 onClick={()=>nextQuestion(3)}>{questionList[currentQuestion].answers[2]}</h5></div>
-        <div className="battleOption u-border-2 u-round-xl u-shadow-md"><h5 onClick={()=>nextQuestion(4)}>{questionList[currentQuestion].answers[3]}</h5></div>
-        </div>
-        </div>
+    const progress = ((currentQuestion) / 5) * 100;
+    const timerClass = props.time <= 10 ? styles.danger : props.time <= 20 ? styles.warning : '';
 
+    return (
+        <div className={`${styles.battleCard} ${styles.slideInUp}`}>
+            <div className={styles.activeBattle}>
+                <div className={styles.progressBar}>
+                    <div 
+                        className={styles.progressFill} 
+                        style={{ width: `${progress}%` }}
+                    ></div>
+                </div>
+                
+                <div className={`${styles.timer} ${timerClass}`}>
+                    {props.time}
+                </div>
+                
+                <h2 className={styles.questionTitle}>
+                    {questionList[currentQuestion].question}
+                </h2>
+                
+                <div className={styles.optionsContainer}>
+                    <div className={styles.battleOption} onClick={() => nextQuestion(1)}>
+                        <h5 className={styles.optionText}>
+                            {questionList[currentQuestion].answers[0]}
+                        </h5>
+                    </div>
+                    <div className={styles.battleOption} onClick={() => nextQuestion(2)}>
+                        <h5 className={styles.optionText}>
+                            {questionList[currentQuestion].answers[1]}
+                        </h5>
+                    </div>
+                    <div className={styles.battleOption} onClick={() => nextQuestion(3)}>
+                        <h5 className={styles.optionText}>
+                            {questionList[currentQuestion].answers[2]}
+                        </h5>
+                    </div>
+                    <div className={styles.battleOption} onClick={() => nextQuestion(4)}>
+                        <h5 className={styles.optionText}>
+                            {questionList[currentQuestion].answers[3]}
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 
     } else {
 
+        const renderResultCard = (index) => {
+            const isCorrect = answerArray[index] > 0;
+            const question = questionList[index];
+            
+            return (
+                <div 
+                    key={index}
+                    className={`${styles.resultCard} ${isCorrect ? styles.correct : styles.incorrect} ${styles.slideInUp}`}
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                    <div className={`${styles.statusIcon} ${isCorrect ? styles.correct : styles.incorrect}`}>
+                        {isCorrect ? <FiCheck /> : <FiX />}
+                    </div>
+                    
+                    <h4 className={styles.resultQuestion}>
+                        {question.question}
+                    </h4>
+                    
+                    <div className={`${styles.correctAnswer} ${isCorrect ? styles.correct : styles.incorrect}`}>
+                        <h5 className={styles.answerText}>
+                            {question.answers[question.rightanswer]}
+                        </h5>
+                    </div>
+                    
+                    <div className={styles.pointsDisplay}>
+                        <p className={styles.pointsLabel}>Pontos:</p>
+                        <p className={`${styles.pointsValue} ${answerArray[index] > 0 ? styles.positive : styles.zero}`}>
+                            {answerArray[index]}
+                        </p>
+                    </div>
+                </div>
+            );
+        };
+
         return (
-
-            <div>
-
-            <div className="card">
-                <div className="content w-90p">
-                <h4 className="title">{questionList[0].question}</h4>
-                <div className={`u-border-2 u-round-xl u-shadow-md ${answerArray[0] > 0 ? " bg-success" : " bg-danger"}`}><h5>{questionList[0].answers[questionList[0].rightanswer]}</h5></div>
-                <p>Pontos: {answerArray[0]}</p>
-                </div>
+            <div className={styles.resultsContainer}>
+                {[0, 1, 2, 3, 4].map(renderResultCard)}
             </div>
-
-            <div className="card">
-                <div className="content w-90p">
-                <h4 className="title">{questionList[1].question}</h4>
-                <div className={`u-border-2 u-round-xl u-shadow-md ${answerArray[1] > 0 ? " bg-success" : " bg-danger"}`}><h5>{questionList[1].answers[questionList[1].rightanswer]}</h5></div>
-                <p>Pontos: {answerArray[1]}</p>
-                </div>
-            </div>
-
-            <div className="card">
-                <div className="content w-90p">
-                <h4 className="title">{questionList[2].question}</h4>
-                <div className={`u-border-2 u-round-xl u-shadow-md ${answerArray[2] > 0 ? " bg-success" : " bg-danger"}`}><h5>{questionList[2].answers[questionList[2].rightanswer]}</h5></div>
-                <p>Pontos: {answerArray[2]}</p>
-                </div>
-            </div>
-
-            <div className="card">
-                <div className="content w-90p">
-                <h4 className="title">{questionList[3].question}</h4>
-                <div className={`u-border-2 u-round-xl u-shadow-md ${answerArray[3] > 0 ? " bg-success" : " bg-danger"}`}><h5>{questionList[3].answers[questionList[3].rightanswer]}</h5></div>
-                <p>Pontos: {answerArray[3]}</p>
-                </div>
-            </div>
-
-            <div className="card">
-                <div className="content w-90p">
-                <h4 className="title">{questionList[4].question}</h4>
-                <div className={`u-border-2 u-round-xl u-shadow-md ${answerArray[4] > 0 ? " bg-success" : " bg-danger"}`}><h5>{questionList[4].answers[questionList[4].rightanswer]}</h5></div>
-                <p>Pontos: {answerArray[4]}</p>
-                </div>
-            </div>
-
-
-            </div>
-    
         )
 
     }

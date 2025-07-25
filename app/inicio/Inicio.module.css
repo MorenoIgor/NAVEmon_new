@@ -1,0 +1,354 @@
+/* Inicio Page Styles */
+
+.container {
+  padding: 1rem;
+  max-width: 48rem; /* Aumentando um pouco o max-width */
+  margin: 0 auto;
+  width: 100%;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Header do Usuário */
+.userHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+}
+
+.userAvatar {
+  width: 5rem;
+  height: 5rem;
+  flex-shrink: 0;
+}
+
+.userAvatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+}
+
+.userInfo {
+  text-align: center;
+  flex: 1;
+}
+
+.userName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.userDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.userDetailItem {
+  color: var(--text-secondary);
+}
+
+.userDetailItem strong {
+  color: var(--text-primary);
+}
+
+/* Current Monster Card */
+.currentMonsterCard {
+  background: var(--bg-secondary);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-medium);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.currentMonsterCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+}
+
+.currentMonsterHeader {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-primary);
+}
+
+.currentMonsterIcon {
+  font-size: 1.5rem;
+  color: #ff6b6b;
+}
+
+.currentMonsterTitle {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.currentMonsterContent {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.currentMonsterImage {
+  flex-shrink: 0;
+  background: var(--bg-primary);
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.monsterImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+  .currentMonsterInfo {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+.monsterName {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.monsterNumber {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.typeContainer {
+  margin-bottom: 1rem;
+}
+
+.monsterDescription {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Estatísticas */
+.statsContainer {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.statsHeader {
+  padding: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.statsList {
+  border-top: 1px solid var(--border-color);
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.statItem:last-child {
+  border-bottom: none;
+}
+
+.statItemLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.statIcon {
+  font-size: 1.125rem;
+  flex-shrink: 0;
+}
+
+.statIconGold {
+  color: #fbbf24;
+}
+
+.statIconPurple {
+  color: #a855f7;
+}
+
+.statIconGreen {
+  color: #10b981;
+}
+
+.statIconRed {
+  color: #ef4444;
+}
+
+.statIconGray {
+  color: #6b7280;
+}
+
+.statIconBlue {
+  color: #3b82f6;
+}
+
+.statIconOrange {
+  color: #f97316;
+}
+
+.statIconAmber {
+  color: #f59e0b;
+}
+
+.statIconCyan {
+  color: #06b6d4;
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.statValue {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.statValueGreen {
+  color: #10b981;
+}
+
+.statValueRed {
+  color: #ef4444;
+}
+
+.statValueGray {
+  color: #6b7280;
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .userHeader {
+    flex-direction: row;
+    text-align: left;
+  }
+  
+  .userInfo {
+    text-align: left;
+  }
+  
+  .userDetails {
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .statItem {
+    padding: 0.75rem 1rem;
+  }
+  
+  .currentMonsterContent {
+    gap: 1.5rem;
+  }
+  
+  .monsterName {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .currentMonsterContent {
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .currentMonsterImage {
+    padding: 0.75rem;
+  }
+  
+  .monsterName {
+    font-size: 1.1rem;
+  }
+  
+  .monsterDescription {
+    font-size: 0.9rem;
+  }
+}
+
+/* Dark mode specific adjustments */
+:global([data-theme="dark"]) .userHeader {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+:global([data-theme="dark"]) .currentMonsterCard {
+  background-color: var(--bg-secondary);
+  border-color: #404040;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+:global([data-theme="dark"]) .currentMonsterHeader {
+  background-color: var(--bg-primary);
+  border-color: #404040;
+}
+
+:global([data-theme="dark"]) .currentMonsterImage {
+  background-color: var(--bg-primary);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+:global([data-theme="dark"]) .statsContainer {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+:global([data-theme="dark"]) .userAvatarImage {
+  border-color: var(--border-color);
+}
+
+:global([data-theme="dark"]) .statsList {
+  border-color: var(--border-color);
+}
+
+:global([data-theme="dark"]) .statItem {
+  border-color: var(--border-color);
+}

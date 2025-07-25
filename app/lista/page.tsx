@@ -8,6 +8,7 @@ import { NAVEmon } from "@/data/navemon"
 import { useRouter } from "next/navigation"
 import {CaughtMonsterStats} from "../components/monsterstats"
 import { Loading } from "../components/loading"
+import styles from './Lista.module.css'
 
 export default function Lista() {
 
@@ -21,7 +22,9 @@ export default function Lista() {
 
     if (status!="authenticated") {
         return (
-            <h1>Acesso restrito</h1>
+            <div className={styles.accessRestricted}>
+                <h1 className={styles.accessRestrictedTitle}>Acesso restrito</h1>
+            </div>
         )
     }
 
@@ -44,26 +47,77 @@ export default function Lista() {
         )
     }
 
-    return (
-        <section className="section w-90p">
+    const totalCaptured = monsterList.filter(mon => mon.trim() !== '').length
+    const totalAvailable = NAVEmon.length - 1 // Subtraindo o índice 0 que não é usado
+    const capturePercentage = totalAvailable > 0 ? Math.round((totalCaptured / totalAvailable) * 100) : 0
 
-          <div className="grid grid-cols-3 u-gap-2">
-          {
-            monsterList.map(
-                (mon) => (
-                    <CaughtMonsterStats key={Date.now()+Math.random()*65535} 
-                    monsterdata = {
-                        NAVEmon[parseInt(mon)]
-                    } 
-                    caught = {monsterList.includes(mon)}
-                    current = {currentMonster == parseInt(mon)}
-                    />
-                )
-            )
-          }
-          </div>
-          <button className="m-4" onClick={()=>{router.replace("/inicio/")}}>Voltar para Início</button>
-        </section>
+    return (
+        <div className={styles.container}>
+            <div className={styles.contentWrapper}>
+                {/* Header Section */}
+                <div className={styles.headerSection}>
+                    <h1 className={styles.pageTitle}>Minha Coleção</h1>
+                    <p className={styles.pageSubtitle}>
+                        Visualize todos os NAVEmon que você capturou
+                    </p>
+                </div>
+
+                {/* Stats Section */}
+                <div className={styles.statsSection}>
+                    <div className={styles.statCard}>
+                        <div className={styles.statValue}>{totalCaptured}</div>
+                        <div className={styles.statLabel}>Capturados</div>
+                    </div>
+                    <div className={styles.statCard}>
+                        <div className={styles.statValue}>{totalAvailable}</div>
+                        <div className={styles.statLabel}>Total</div>
+                    </div>
+                    <div className={styles.statCard}>
+                        <div className={styles.statValue}>{capturePercentage}%</div>
+                        <div className={styles.statLabel}>Progresso</div>
+                    </div>
+                </div>
+
+                {/* Monster Grid */}
+                {totalCaptured > 0 ? (
+                    <div className={styles.monsterGrid}>
+                        {monsterList
+                            .filter(mon => mon.trim() !== '')
+                            .map((mon) => (
+                                <CaughtMonsterStats 
+                                    key={`${mon}-${Date.now()}-${Math.random()}`}
+                                    monsterdata={NAVEmon[parseInt(mon)]} 
+                                    caught={monsterList.includes(mon)}
+                                    current={currentMonster == parseInt(mon)}
+                                />
+                            ))
+                        }
+                    </div>
+                ) : (
+                    <div className={styles.emptyState}>
+                        <div className={styles.emptyStateIcon}>🔍</div>
+                        <h3 className={styles.emptyStateTitle}>Nenhum NAVEmon capturado ainda</h3>
+                        <p className={styles.emptyStateMessage}>
+                            Comece sua jornada capturando seu primeiro NAVEmon!
+                        </p>
+                        <button 
+                            className={styles.emptyStateButton}
+                            onClick={() => {router.replace("/capturar/")}}
+                        >
+                            Ir para Capturar
+                        </button>
+                    </div>
+                )}
+
+                {/* Back Button */}
+                <button 
+                    className={styles.backButton} 
+                    onClick={() => {router.replace("/inicio/")}}
+                >
+                    Voltar para o Início
+                </button>
+            </div>
+        </div>
     )
 
 }

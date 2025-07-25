@@ -1,0 +1,391 @@
+/* Captura Page Styles */
+
+.container {
+  padding: 2rem 1rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.accessDenied {
+  text-align: center;
+  font-size: 1.5rem;
+  color: var(--color-danger);
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 2px solid var(--color-danger);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Pre-Battle Screen */
+.previewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 700px;
+  width: 100%;
+}
+
+.monsterCard {
+  background: var(--bg-secondary);
+  border-radius: 1.5rem;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: var(--shadow-heavy);
+  border: 1px solid var(--border-color);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+}
+
+.monsterCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-success));
+}
+
+.monsterName {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.typeContainer {
+  margin-bottom: 2.5rem;
+}
+
+.monsterImage {
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
+  border-radius: 1rem;
+  background: var(--bg-primary);
+  padding: 1.5rem;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.monsterImage:hover {
+  transform: scale(1.05);
+}
+
+.startButton {
+  background: linear-gradient(135deg, var(--color-success), #059669);
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  padding: 1.25rem 3.5rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  min-width: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.startButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.startButton:hover::before {
+  left: 100%;
+}
+
+.startButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.startButton:active {
+  transform: translateY(0);
+}
+
+/* Battle Screen */
+.battleSection {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+.battleContent {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.resultActions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.actionButton {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 0.75rem;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 180px;
+  box-shadow: var(--shadow-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionButton:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-heavy);
+}
+
+.actionButton.success {
+  background: var(--color-success);
+}
+
+.actionButton.success:hover {
+  background: #059669;
+}
+
+/* Success/Failure States */
+.resultMessage {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin: 1rem 0;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.resultMessage.success {
+  background: rgba(16, 185, 129, 0.1);
+  border: 2px solid var(--color-success);
+  color: var(--color-success);
+}
+
+.resultMessage.failure {
+  background: rgba(239, 68, 68, 0.1);
+  border: 2px solid var(--color-danger);
+  color: var(--color-danger);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .monsterCard {
+    padding: 2.5rem 2rem;
+    min-height: 450px;
+  }
+  
+  .monsterName {
+    font-size: 2.25rem;
+  }
+  
+  .monsterImage {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .startButton {
+    padding: 1.125rem 2.5rem;
+    font-size: 1.2rem;
+    min-width: 250px;
+  }
+  
+  .battleSection {
+    padding: 1rem;
+  }
+  
+  .resultActions {
+    width: 100%;
+  }
+  
+  .actionButton {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .monsterCard {
+    padding: 2rem 1.5rem;
+    min-height: 400px;
+  }
+  
+  .monsterName {
+    font-size: 2rem;
+  }
+  
+  .monsterImage {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .startButton {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 280px;
+    min-width: auto;
+  }
+}
+
+/* Dark Mode Adjustments */
+[data-theme="dark"] .monsterCard {
+  background: var(--bg-secondary);
+  border-color: #404040;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .monsterImage {
+  background: var(--bg-primary);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .resultMessage.success {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: #10b981;
+  color: #34d399;
+}
+
+[data-theme="dark"] .resultMessage.failure {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+  color: #f87171;
+}
+
+[data-theme="dark"] .battleSection {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, #222222 100%);
+}
+
+[data-theme="dark"] .actionButton {
+  background: #3b82f6;
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+[data-theme="dark"] .actionButton:hover {
+  background: #2563eb;
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+[data-theme="dark"] .actionButton.success {
+  background: #10b981;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+[data-theme="dark"] .actionButton.success:hover {
+  background: #059669;
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+[data-theme="dark"] .startButton {
+  background: linear-gradient(135deg, #10b981, #059669);
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+[data-theme="dark"] .startButton:hover {
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+}
+
+[data-theme="dark"] .accessDenied {
+  background: #2a1f1f;
+  border-color: #ef4444;
+  color: #f87171;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation Classes */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slideIn {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 1rem;
+}
+
+.loadingSpinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--border-color);
+  border-top: 4px solid var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

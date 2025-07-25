@@ -8,13 +8,14 @@ import { NAVEmon } from "@/data/navemon"
 import {WildMonsterStats} from "../components/monsterstats"
 import {Loading} from "../components/loading"
 import { useRouter } from "next/navigation"
+import styles from './Capturar.module.css'
 
-export default function Lista() {
+export default function Capturar() {
 
     const {data: session,status} = useSession()
     const [monsterList, setMonsterList] = useState([])
-    const [playerInfo, setPlayerInfo] = useState({})
-    const [errorMessage, setErrorMesage] = useState("")
+    const [playerInfo, setPlayerInfo] = useState<any>({})
+    const [errorMessage, setErrorMessage] = useState("")
     const [canCatch, setCanCatch] = useState(true)
 
     const [loading, setLoading] = useState(true)
@@ -23,7 +24,9 @@ export default function Lista() {
 
     if (status!="authenticated") {
         return (
-            <h1>Acesso restrito</h1>
+            <div className={styles.accessRestricted}>
+                <h1 className={styles.accessRestrictedTitle}>Acesso restrito</h1>
+            </div>
         )
     }
 
@@ -58,7 +61,7 @@ export default function Lista() {
     ,[])
 
     function noCatches() {
-        setErrorMesage("Você não tem capturas suficientes! Volte amanhã!")
+        setErrorMessage("Você não tem capturas suficientes! Volte amanhã!")
     }
 
     if (loading) {
@@ -68,28 +71,49 @@ export default function Lista() {
     }
 
     return (
-        <section className="section w-90p">
+        <div className={styles.container}>
+            <div className={styles.contentWrapper}>
+                {/* Info Section */}
+                <div className={styles.infoSection}>
+                    <h2 className={styles.capturesCounter}>
+                        Capturas restantes: <span className={styles.capturesNumber}>{playerInfo.catches || 0}</span>
+                    </h2>
+                    {errorMessage && (
+                        <p className={styles.errorMessage}>{errorMessage}</p>
+                    )}
+                </div>
 
-          <div className="grid grid-cols-3 u-gap-2">
-          {
-            monsterList.map(
-                (mon) => (
-                    <WildMonsterStats key={Date.now()+Math.random()*65535} 
-                    monsterdata = {
-                        mon
-                    } 
-                    current = {false}
-                    cancatch = {canCatch}
-                    callback = {noCatches}
-                    />
-                )
-            )
-          }
-          </div>
-          <h2>Capturas restantes: {playerInfo.catches}</h2>
-          <p>{errorMessage}</p><br />
-          <button className="m-4"  onClick={()=>{router.replace("/inicio/")}}>Voltar para Início</button>
-        </section>
+                {/* Monster Grid */}
+                {monsterList.length > 0 ? (
+                    <div className={styles.monsterGrid}>
+                        {monsterList.map((mon) => (
+                            <WildMonsterStats 
+                                key={`${mon.id}-${Date.now()}-${Math.random()}`}
+                                monsterdata={mon} 
+                                current={false}
+                                cancatch={canCatch}
+                                callback={noCatches}
+                            />
+                        ))}
+                    </div>
+                ) : (
+                    <div className={styles.emptyState}>
+                        <h3 className={styles.emptyStateTitle}>Todos os NAVEmon capturados!</h3>
+                        <p className={styles.emptyStateMessage}>
+                            Parabéns! Você já capturou todos os NAVEmon disponíveis.
+                        </p>
+                    </div>
+                )}
+
+                {/* Back Button */}
+                <button 
+                    className={styles.backButton}  
+                    onClick={() => {router.replace("/inicio/")}}
+                >
+                    Voltar para Início
+                </button>
+            </div>
+        </div>
     )
 
 }
