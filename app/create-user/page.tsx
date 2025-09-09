@@ -60,7 +60,7 @@ export default function CreateUserPage() {
                             className={`${styles.optionCard} ${styles.courseMultimedia} ${selectedCourse === "MULT" ? styles.selected : ""}`}
                             onClick={() => setSelectedCourse("MULT")}
                         >
-                            <span className={styles.optionIcon}>🎨</span>
+                            <img src={`/trainers/mm.png`} />
                             <div className={styles.optionTitle}>Multimídia</div>
                             <div className={styles.optionDescription}>
                                 Design, criatividade e produção audiovisual
@@ -70,7 +70,7 @@ export default function CreateUserPage() {
                             className={`${styles.optionCard} ${styles.courseProgramming} ${selectedCourse === "PROG" ? styles.selected : ""}`}
                             onClick={() => setSelectedCourse("PROG")}
                         >
-                            <span className={styles.optionIcon}>💻</span>
+                            <img src={`/trainers/prog.png`} />
                             <div className={styles.optionTitle}>Programação</div>
                             <div className={styles.optionDescription}>
                                 Desenvolvimento de software e sistemas
